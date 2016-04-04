@@ -17,3 +17,6 @@ config/*.sphinx.conf
 db/sphinx
 
 
+# Added by webpack-rails
+/node_modules
+/public/webpack

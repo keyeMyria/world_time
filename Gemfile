@@ -26,6 +26,8 @@ gem 'active_model_serializers'
 # gem "thin"
 
 # frontend
+gem "webpack-rails"
+
 gem 'react-rails'
 gem 'sprockets-coffee-react'
 gem 'react-redux-rails'
@@ -35,6 +37,8 @@ gem 'foundation-rails'
 gem 'gon'
 # gem 'materialize-sass'
 # gem 'skim'
+
+gem "foreman"
 
 # data
 gem 'seed-fu'
@@ -116,3 +120,4 @@ end
 # gem 'omniauth-facebook'
 # gem 'omniauth-twitter'
 # gem "omniauth-vkontakte"
+
