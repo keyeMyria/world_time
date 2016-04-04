@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @time_zone.name
+
+= link_to 'Edit', edit_time_zone_path(@time_zone)
+'|
+= link_to 'Back', time_zones_path

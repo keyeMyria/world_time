@@ -1,0 +1,15 @@
+h1.center Dashboard
+
+= form_tag operation_dashboard_path do
+  .small-offset-2.small-4.columns = select_tag :time_zone_id, options_from_collection_for_select(TimeZone.all, :id, :name)
+  = number_field_tag :dashboard_id, @dashboard.id, type: :hidden
+  .small-4.columns = button_tag "Add", class: "button"
+
+table.center
+  tbody
+    - @dashboard.time_zones.each do |time_zone|
+      tr
+        td = time_zone.name
+        td = time_zone.hours
+        td = link_to 'Destroy', operation_dashboard_path(dashboard_id: @dashboard, time_zone_id: time_zone), method: :delete
+

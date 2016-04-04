@@ -1,0 +1,20 @@
+.center = link_to 'Add Time zone', new_time_zone_path
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @time_zones.each do |time_zone|
+      tr
+        td = time_zone.name
+        td = link_to 'Show', time_zone
+        td = link_to 'Edit', edit_time_zone_path(time_zone)
+        td = link_to 'Destroy', time_zone, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
