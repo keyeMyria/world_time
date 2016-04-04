@@ -3,10 +3,10 @@ html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     title World Time
-    /* = include_gon */
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+
   body
     .container
       .row
@@ -15,4 +15,7 @@ html
         .notice.center = notice
         .alert.center  = alert
         = yield
+
+  = javascript_include_tag *webpack_asset_paths("application")
+  script src="http://localhost:3808/webpack-dev-server.js"
 

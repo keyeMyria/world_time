@@ -27,18 +27,15 @@ gem 'active_model_serializers'
 
 # frontend
 gem "webpack-rails"
-
-gem 'react-rails'
-gem 'sprockets-coffee-react'
-gem 'react-redux-rails'
-
-gem 'bower-rails'
 gem 'foundation-rails'
-gem 'gon'
-# gem 'materialize-sass'
-# gem 'skim'
-
 gem "foreman"
+
+# gem 'react-rails'
+# gem 'sprockets-coffee-react'
+# gem 'react-redux-rails'
+# gem 'bower-rails'
+# gem 'gon'
+
 
 # data
 gem 'seed-fu'
@@ -50,8 +47,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'capybara'
-  gem 'capybara-email'
-  gem 'capybara-webkit'
+  # gem 'capybara-email'
+  # gem 'capybara-webkit'
   gem 'launchy'
   gem "database_cleaner"
   gem 'faker'
@@ -69,9 +66,9 @@ group :development, :test do
   # gem 'guard-spring'
   # gem 'guard-zeus'
 
-  gem 'rubocop', require: false
-  gem 'rubocop-rspec'
-  gem 'parser', '~> 2.2.2.5'
+  # gem 'rubocop', require: false
+  # gem 'rubocop-rspec'
+  # gem 'parser', '~> 2.2.2.5'
 
   # debag
   gem "awesome_print", require:"ap"
