@@ -14,7 +14,7 @@ var production = process.env.TARGET === 'production';
 var config = {
   entry: {
     // Sources are expected to live in $app_root/webpack
-    'application': './webpack/application.js'
+    'application': './webpack/application.jsx'
   },
 
   output: {
@@ -41,7 +41,20 @@ var config = {
       chunks: false,
       modules: false,
       assets: true
-    })]
+    })],
+
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel', // 'babel-loader' is also a legal name to reference
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  }
 };
 
 if (production) {

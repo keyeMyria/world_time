@@ -7,9 +7,9 @@
 
 //= require react
 //= require react_ujs
-//= require components
+// require components
 
-//= require_tree .
+// require_tree .
 
 // require private_pub
 // require materialize-sprockets

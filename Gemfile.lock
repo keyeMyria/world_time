@@ -69,9 +69,6 @@ GEM
     capybara-email (2.5.0)
       capybara (~> 2.4)
       mail
-    capybara-webkit (1.9.0)
-      capybara (>= 2.3.0, < 2.7.0)
-      json
     cocoon (1.2.9)
     coderay (1.1.1)
     coffee-rails (4.1.1)
@@ -368,7 +365,6 @@ DEPENDENCIES
   bullet
   capybara
   capybara-email
-  capybara-webkit
   cocoon
   coffee-rails (~> 4.1.0)
   database_cleaner
