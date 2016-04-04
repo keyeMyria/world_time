@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: app_world_time_development
+
+test:
+  <<: *default
+  database: app_world_time_test
+
+# production:
+#   <<: *default
+#   database: app_world_time_production
