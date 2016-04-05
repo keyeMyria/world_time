@@ -2,11 +2,19 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # root 'home#index'
-  # root 'time_zones#index'
-  resources :time_zones
-  resource :operation_dashboard
+  root 'home#index'
 
-  root 'dashboards#show'
+  namespace :api do
+    namespace :v1 do
+      resources :time_zones, defaults: { format: :json }
+      resources :operation_dashboard, defaults: { format: :json }, only: [:show]
+
+    end
+  end
+
+  # resources :time_zones
+  # resource :operation_dashboard
+
+  # root 'dashboards#show'
 
 end

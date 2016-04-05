@@ -6,4 +6,5 @@ class TestComponent extends React.Component {
 	}
 }
 
-ReactDOM.render(<TestComponent />, document.getElementById('main'));
+
+export { TestComponent };

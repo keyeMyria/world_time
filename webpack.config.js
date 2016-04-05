@@ -18,15 +18,16 @@ var config = {
     filename: production ? '[name]-[chunkhash].js' : '[name].js'
   },
 
-  resolve: {
-    root: path.join(__dirname, '..', 'webpack')
-  },
 
   plugins: [
     new webpack.ProvidePlugin({
       'React':        'react',
       'ReactDOM':     'react-dom',
+      "$":            "jquery",
+      "jQuery":       "jquery",
+      // "foundation":   "foundation"
     }),
+
 
     new StatsPlugin('manifest.json', {
       chunkModules: false,
@@ -34,20 +35,45 @@ var config = {
       chunks: false,
       modules: false,
       assets: true
-    })],
+    })
+  ],
 
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
-      }
-    ]
-  }
+
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel',
+      query: { presets: ['es2015', 'react'] }
+    }, {
+      test:   /\.jade$/,
+      loader: "jade"
+    }, {
+      test:   /\.styl$/,
+      loader: 'style!css!stylus?resolve urls'
+    }, {
+      test:   /\.css$/,
+      loader: 'style-loader!css-loader'
+    }, {
+      test: /\.scss$/,
+      loaders: ['style', 'css', 'sass'],
+    }, {
+      test:   /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+      loader: 'file?name=[path][name].[ext]'
+    } ]
+  },
+
+  resolve: {
+    root: path.join(__dirname, 'webpack'),
+    modulesDirectories: ['node_modules'],
+  },
+
+  // externals: {
+  //     jQuery: 'jQuery',
+  //     foundation: 'Foundation'
+  // },
+
+
 };
 
 if (production) {
@@ -69,7 +95,7 @@ if (production) {
     headers: { 'Access-Control-Allow-Origin': '*' }
   };
   config.output.publicPath = '//localhost:' + devServerPort + '/webpack/';
-  config.devtool = 'cheap-module-eval-source-map';
+  config.devtool = 'cheap-module-eval-source-map'; // devtool
 }
 
 module.exports = config;

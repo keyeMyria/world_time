@@ -1,9 +1,9 @@
-//= require jquery
-//= require jquery_ujs
-//= require jquery_nested_form
+// require jquery
+// require jquery_ujs
+// require jquery_nested_form
 
-//= require foundation
-//= require cocoon
+// require foundation
+// require cocoon
 
 // require react
 // require react_ujs
@@ -14,7 +14,7 @@
 // require private_pub
 // require materialize-sprockets
 
-$(function(){ $(document).foundation(); });
+// $(function(){ $(document).foundation(); });
 
 
 
