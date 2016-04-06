@@ -5,7 +5,7 @@ class TimeZonesController < ApplicationController
 
   def index
     @time_zones = TimeZone.all
-    respond_with(@time_zones)
+    render json: @time_zones, each_serializer: TimeZoneSerializer
   end
 
   def show

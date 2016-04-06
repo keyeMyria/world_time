@@ -9,7 +9,7 @@ class Time extends React.Component {
     }
 }
 
-class Dashboard extends React.Component {
+export default class Dashboard extends React.Component {
 
   constructor(props) {
     super(props)
@@ -67,5 +67,4 @@ class Dashboard extends React.Component {
 
 
 
-export { Dashboard }
 

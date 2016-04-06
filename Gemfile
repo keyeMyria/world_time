@@ -18,7 +18,7 @@ gem "simple_form"
 gem 'nested_form'
 gem 'cocoon'
 gem "responders"
-gem 'active_model_serializers'
+gem 'active_model_serializers', '0.8.3'
 # gem 'cancancan'
 # gem 'carrierwave'
 # gem 'remotipart'
