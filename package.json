@@ -13,7 +13,7 @@
     "mobservable-model": "0.0.10",
     "mobservable-react": "^2.1.5",
     "mobx": "^2.0.5",
-    "mobx-model": "0.0.12",
+    "mobx-model": "0.0.13",
     "mobx-react": "^3.0.3",
     "react": "0.14.8",
     "react-dom": "0.14.8",
