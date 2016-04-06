@@ -43,7 +43,25 @@ var config = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel',
-      query: { presets: ['es2015', 'react', 'stage-0', 'stage-1', 'stage-2', 'stage-3'] }
+ query: {
+        cacheDirectory: true,
+        plugins: [
+          'transform-runtime',
+          'add-module-exports',
+          'transform-decorators-legacy',
+        ],
+        presets: ['es2015', 'react', 'stage-1'],
+      },
+
+      /* query: { */
+      /*   presets: ['es2015', 'react', 'stage-0', 'stage-1', 'stage-2', 'stage-3'], */
+      /*   plugins: [ */
+      /*     'transform-runtime', */
+      /*     /1* 'add-module-exports', *1/ */
+      /*     'transform-decorators-legacy', */
+      /*   ], */
+      /* } */
+
     }, {
       test:   /\.jade$/,
       loader: "jade"

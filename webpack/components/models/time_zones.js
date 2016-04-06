@@ -1,17 +1,33 @@
-/* import { BaseModel } from 'mobservable-model'; */
+import { BaseModel } from 'mobservable-model';
 
-
-import { BaseModel } from 'mobx-model';
-
-class New extends BaseModel {
-  static attributes = { }
+class TimeZones extends BaseModel {
+  static attributes = {
+    name: null,
+  }
 }
 
 
-/* class New extends BaseModel { */
-/*   static attributes = {} */
-/* } */
+BaseModel.addAction('destroy', function() {
+  return API.request({
+    method: 'delete',
+    endpoint: `${this.urlRoot}/${this.id}`,
+    onSuccess: (options = {}) => {
+      let { json, requestId } = options;
+      this.onDestroy();
+    }
+  });
+});
 
-/* static attributes = { */
-/*   "name": 222 */
-/* } */
+BaseModel.addAction('create', function() {
+  return API.request({
+    method: 'delete',
+    endpoint: `${this.urlRoot}/${this.id}`,
+    onSuccess: (options = {}) => {
+      let { json, requestId } = options;
+      this.onDestroy();
+    }
+  });
+});
+
+/* console.log(TimeZones) */
+/* console.log(TimeZones.create) */
