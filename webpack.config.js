@@ -40,10 +40,10 @@ var config = {
   module: {
 
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.js?$/,
       exclude: /node_modules/,
       loader: 'babel',
- query: {
+      query: {
         cacheDirectory: true,
         plugins: [
           'transform-runtime',
@@ -52,15 +52,6 @@ var config = {
         ],
         presets: ['es2015', 'react', 'stage-1'],
       },
-
-      /* query: { */
-      /*   presets: ['es2015', 'react', 'stage-0', 'stage-1', 'stage-2', 'stage-3'], */
-      /*   plugins: [ */
-      /*     'transform-runtime', */
-      /*     /1* 'add-module-exports', *1/ */
-      /*     'transform-decorators-legacy', */
-      /*   ], */
-      /* } */
 
     }, {
       test:   /\.jade$/,

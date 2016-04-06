@@ -1,5 +1,5 @@
-import { Selector }      from 'components/main/selector';
-import { TimeZonesList } from 'components/main/time_zone_list';
+import { Selector }    from 'components/main/selector';
+import  TimeZonesList  from 'components/main/time_zone_list';
 
 class Page extends React.Component {
 

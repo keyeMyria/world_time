@@ -16,5 +16,5 @@ class TimeZonesList extends React.Component {
 
 
 
-export { TimeZonesList }
+export default TimeZonesList
 

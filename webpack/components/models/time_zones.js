@@ -1,4 +1,4 @@
-import { BaseModel } from 'mobservable-model';
+import { BaseModel } from 'mabx-model';
 
 class TimeZones extends BaseModel {
   static attributes = {
