@@ -1,33 +1,33 @@
-import {observer} from 'mobx-react';
+/* import {observer} from 'mobx-react'; */
 
-@observer
-class TimerView extends React.Component {
-    render() {
-        return (<button onClick={this.onReset}>
-                Seconds passed: {this.props.appState.timer}
-            </button>);
-    }
+/* @observer */
+/* class TimerView extends React.Component { */
+/*     render() { */
+/*         return (<button onClick={this.onReset}> */
+/*                 Seconds passed: {this.props.appState.timer} */
+/*             </button>); */
+/*     } */
 
-    onReset = () => {
-        this.props.appState.resetTimer();
-    }
-};
+/*     onReset = () => { */
+/*         this.props.appState.resetTimer(); */
+/*     } */
+/* }; */
 
-ReactDOM.render(<TimerView appState={"1110"} />, document.getElementById('main'));
-/* React.render(<TimerView appState={appState} />, document.body); */
-
-
-
-class Test extends React.Component {
-	render() {
-		return(
-			<div>test</div>
-		)
-	}
-}
+/* ReactDOM.render(<TimerView appState={"new"} />, document.getElementById('main')); */
+/* /1* React.render(<TimerView appState={appState} />, document.body); *1/ */
 
 
-export { Test };
+
+/* class Test extends React.Component { */
+/* 	render() { */
+/* 		return( */
+/* 			<div>test</div> */
+/* 		) */
+/* 	} */
+/* } */
+
+
+/* export { Test }; */
 
 // import React from 'react';
 // import React from 'react';

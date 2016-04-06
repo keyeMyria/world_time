@@ -17,6 +17,8 @@
     "mobx-react": "^3.0.3",
     "react": "0.14.8",
     "react-dom": "0.14.8",
+    "react-select": "^1.0.0-beta12",
+    "react-select2-wrapper": "^0.5.3",
     "stats-webpack-plugin": "^0.2.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.9.11",

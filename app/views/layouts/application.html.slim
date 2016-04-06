@@ -9,12 +9,14 @@ html
 
   body
     .container
-      .row
-        = render "layouts/navbar"
-        br
-        .notice.center = notice
-        .alert.center  = alert
-        = yield
+      /* .row */
+      /*   = render "layouts/navbar" */
+      /*   br */
+      /*   .notice.center = notice */
+      /*   .alert.center  = alert */
+      = yield
+      #header
+      #main
 
   = javascript_include_tag *webpack_asset_paths("application")
   script src="http://localhost:3808/webpack-dev-server.js"
