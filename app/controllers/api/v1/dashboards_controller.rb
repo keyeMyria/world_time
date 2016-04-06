@@ -4,4 +4,7 @@ class DashboardsController < ApplicationController
     @dashboard = Dashboard.first
   end
 
+  # def create
+  #   binding.pry
+  # end
 end

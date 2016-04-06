@@ -25,7 +25,6 @@ var config = {
       'ReactDOM':     'react-dom',
       "$":            "jquery",
       "jQuery":       "jquery",
-      // "foundation":   "foundation"
     }),
 
 
@@ -44,7 +43,7 @@ var config = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel',
-      query: { presets: ['es2015', 'react'] }
+      query: { presets: ['es2015', 'react', 'stage-0', 'stage-1', 'stage-2', 'stage-3'] }
     }, {
       test:   /\.jade$/,
       loader: "jade"
@@ -69,8 +68,7 @@ var config = {
   },
 
   // externals: {
-  //     jQuery: 'jQuery',
-  //     foundation: 'Foundation'
+  //     'react': 'React'
   // },
 
 
