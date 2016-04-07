@@ -36,10 +36,9 @@ words = [
 
 words.each do |word|
 
-  TimeZone.seed do |s|
+  City.seed do |s|
     s.name     = word
-    s.hours    = rand(-10..10)
+    s.hour_id  = rand(1..20)
   end
 
 end
-

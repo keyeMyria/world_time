@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import SelectorList from 'views/main/selectorList.jsx';
-import TimeZonesList from 'views/main/timeZoneList.jsx';
-import { observer }      from 'mobx-react';
-import { TimeZone } from 'models';
+import SelectorList         from 'views/main/selectorList.jsx';
+import TimeZonesList        from 'views/main/timeZoneList.jsx';
+import { observer }         from 'mobx-react';
+import { City }             from 'models';
 
 @observer
 export default class Page extends Component {
@@ -10,7 +10,7 @@ export default class Page extends Component {
   componentWillMount() {
     this.setState({ loading: true });
 
-    TimeZone.loadAll().then(response => {
+    City.loadAll().then(response => {
       if (response.ok) {
         this.setState({ loading: false })
       }
@@ -25,7 +25,7 @@ export default class Page extends Component {
     return (
       <div className="center">
         <h1> Main page </h1>
-        <SelectorList timeZones={TimeZone.all()}/>
+        <SelectorList cities ={City.all()}/>
         <TimeZonesList />
       </div>
     )

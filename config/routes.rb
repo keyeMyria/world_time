@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :time_zones, defaults: { format: :json }
+      resources :cities, defaults: { format: :json }
       resources :operation_dashboard, defaults: { format: :json }, only: [:show]
 
     end

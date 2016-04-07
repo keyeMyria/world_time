@@ -1,6 +1,8 @@
 class Dashboard < ActiveRecord::Base
 
-  has_many :dashboard_time_zones
-  has_many :time_zones, through: :dashboard_time_zones
+  belongs_to :user
+
+  has_many :dashboard_cities
+  has_many :cities, through: :dashboard_cities
 
 end

@@ -1,8 +1,8 @@
 class CreateTimeZones < ActiveRecord::Migration
   def change
-    create_table :time_zones do |t|
+    create_table :cities do |t|
       t.string  :name
-      t.integer :hours, default: 0
+      t.integer :hour_id
 
       t.timestamps null: false
     end

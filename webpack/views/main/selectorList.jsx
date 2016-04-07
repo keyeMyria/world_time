@@ -4,7 +4,7 @@ import React, { PropTypes, Component } from 'react';
 
 export default class SelectorList extends Component {
   static propTypes = {
-    timeZones: PropTypes.arrayOf(PropTypes.object)
+    cities: PropTypes.arrayOf(PropTypes.object)
   }
 
   handleChange = (event) => {
@@ -17,7 +17,7 @@ export default class SelectorList extends Component {
         <div className="small-offset-2 small-4 columns">
             <Select2
               onChange={ this.handleChange }
-              data={ this.props.timeZones }
+              data={ this.props.cities }
             />
           </div>
 
