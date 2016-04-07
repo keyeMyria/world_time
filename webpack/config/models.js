@@ -8,8 +8,8 @@ BaseModel.getModel = (modelName) => {
 BaseModel.addClassAction('loadAll', function() {
   return API.request({
    endpoint: this.urlRoot,
-    onSuccess: (json) => {
-      json.body.forEach(modelJson => {
+    onSuccess: (response) => {
+      response.body.forEach(modelJson => {
       	this.set({ modelJson })
       });
      }
@@ -19,10 +19,10 @@ BaseModel.addClassAction('loadAll', function() {
 BaseModel.addClassAction('load', function(id) {
   return API.request({
     endpoint: `${this.urlRoot}/${id}`,
-    onSuccess: (json) => {
+    onSuccess: (response) => {
       this.set({
-        modelJson: json.body[this.jsonKey],
-        topLevelJson: json
+        modelJson: response.body[this.jsonKey],
+        topLevelJson: response.body
       });
     }
   })

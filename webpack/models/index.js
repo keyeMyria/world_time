@@ -1,7 +1,7 @@
 import Dashboard from 'models/dashboard';
 import City from 'models/city';
 
-export {
+export default {
 	Dashboard,
-	City,
+	City
 }

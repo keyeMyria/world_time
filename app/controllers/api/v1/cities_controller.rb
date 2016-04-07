@@ -2,7 +2,7 @@ class Api::V1::CitiesController < Api::V1::BaseController
 
   def index
     @city = City.all
-    respond_with @city, each_serializer: CitiesSerializer, root: false
+    render json: @city, each_serializer: CitySerializer, root: false
   end
 
   # def create
