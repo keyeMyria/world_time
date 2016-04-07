@@ -1,2 +1,2 @@
-import api from    'components/config/api';
-import models from 'components/config/models';
+import api    from    'config/api';
+import models from 'config/models';

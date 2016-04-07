@@ -9,24 +9,19 @@ var production = process.env.TARGET === 'production';
 
 var config = {
   entry: {
-    'application': './webpack/application.js'
+    'application': './webpack/app.jsx'
   },
-
+  devtool: 'eval-source-map',
   output: {
     path: path.join(__dirname, '..', 'public', 'webpack'),
     publicPath: '/webpack/',
     filename: production ? '[name]-[chunkhash].js' : '[name].js'
   },
 
-
   plugins: [
     new webpack.ProvidePlugin({
-      'React':        'react',
-      'ReactDOM':     'react-dom',
-      "$":            "jquery",
       "jQuery":       "jquery",
     }),
-
 
     new StatsPlugin('manifest.json', {
       chunkModules: false,
@@ -40,7 +35,7 @@ var config = {
   module: {
 
     loaders: [{
-      test: /\.js?$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel',
       query: {

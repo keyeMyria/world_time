@@ -1,4 +1,4 @@
-import { BaseModel } from 'mobservable-model';
+import { BaseModel } from 'mobx-model';
 
 export default class TimeZone extends BaseModel {
   static attributes = {
@@ -13,3 +13,6 @@ export default class TimeZone extends BaseModel {
     }
   }
 }
+
+
+

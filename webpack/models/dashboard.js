@@ -1,7 +1,7 @@
-import { BaseModel } from 'mobservable-model';
+import { BaseModel } from 'mobx-model';
 
 export default class Dashboard extends BaseModel {
-  
+
   static relations = [
     {
       type: 'hasMany',
@@ -14,5 +14,5 @@ export default class Dashboard extends BaseModel {
       reverseRelation: true
     }
   ];
-  
+
 }

@@ -7,7 +7,7 @@ class Time extends React.Component {
         </div>
       )
     }
-}
+};
 
 export default class Dashboard extends React.Component {
 
@@ -63,7 +63,7 @@ export default class Dashboard extends React.Component {
       return <h1 className="center"> Load </h1>
     }
   }
-}
+};
 
 
 

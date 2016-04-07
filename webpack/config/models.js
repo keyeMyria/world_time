@@ -7,14 +7,37 @@ BaseModel.getModel = (modelName) => {
 
 BaseModel.addClassAction('loadAll', function() {
   return API.request({
-    endpoint: `${this.urlRoot}`,
+   endpoint: this.urlRoot,
     onSuccess: (json) => {
-      json.forEach(modelJson => {
+      json.body.forEach(modelJson => {
       	this.set({ modelJson })
       });
-    }
+     }
   });
-});
+ });
+
+// BaseModel.addClassAction('load', function(id) {
+//  return API.request({
+//    endpoint: `${this.urlRoot}/${id}`,
+//    onSuccess: (json) => {
+//      this.set({
+//        modelJson: json[this.jsonKey],
+//        topLevelJson: json
+//       });
+//     }
+//   })
+// });
+
+// BaseModel.addAction('destroy', function(id) {
+//   return API.request({
+//     method: 'del',
+//     endpoint: `${this.urlRoot}/${this.id}`,
+//     onSuccess: (json) => {
+//       this.onDestroy();
+//       if (isFunction(this.afterDestroy)) this.afterDestroy(options);
+//     }
+//   });
+// });
 
 /* BaseModel.addClassAction('create', function(attributes) { */
 
@@ -38,17 +61,6 @@ BaseModel.addClassAction('loadAll', function() {
 /*   }); */
 /* }); */
 
-/* BaseModel.addClassAction('load', function(id) { */
-/*   return API.request({ */
-/*     endpoint: `${this.urlRoot}/${id}`, */
-/*     onSuccess: (json) => { */
-/*       this.set({ */
-/*         modelJson: json[this.jsonKey], */
-/*         topLevelJson: json */
-/*       }); */
-/*     } */
-/*   }) */
-/* }); */
 
 /* BaseModel.addClassAction("searchNames", function(searchTerm, searchId) { */
 /*   return API.request({ */
@@ -77,25 +89,4 @@ BaseModel.addClassAction('loadAll', function() {
 /* }); */
 
 
-/* BaseModel.addAction('destroy', function() { */
-/*   return API.request({ */
-/*     method: 'del', */
-/*     endpoint: `${this.urlRoot}/${this.id}`, */
-/*     onSuccess: (json) => { */
-/*       this.onDestroy(); */
 
-/*       if (isFunction(this.afterDestroy)) this.afterDestroy(options); */
-/*     } */
-/*   }); */
-/* }); */
-
-/* BaseModel.addClassAction('loadAll', function() { */
-/*   return API.request({ */
-/*     endpoint: `${this.urlRoot}`, */
-/*     onSuccess: (json) => { */
-/*       json.forEach(modelJson => { */
-/*         this.set({ modelJson }) */
-/*       }); */
-/*     } */
-/*   }); */
-/* }); */
