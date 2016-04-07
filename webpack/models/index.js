@@ -1,7 +1,7 @@
 import Dashboard from 'models/dashboard';
-import TimeZone  from 'models/time_zone';
+import City from 'models/city';
 
 export {
 	Dashboard,
-	TimeZone
+	City,
 }

@@ -16,16 +16,56 @@ BaseModel.addClassAction('loadAll', function() {
   });
  });
 
+BaseModel.addClassAction('load', function(id) {
+  return API.request({
+    endpoint: `${this.urlRoot}/${id}`,
+    onSuccess: (json) => {
+      this.set({
+        modelJson: json.body[this.jsonKey],
+        topLevelJson: json
+      });
+    }
+  })
+});
+
+BaseModel.addAction('update', function(attributes = {}) {
+  return API.request({
+    method: 'put',
+    data: attributes,
+    endpoint: `${this.urlRoot}/${this.id}`,
+    onSuccess: (json) => {
+      console.log(json)
+     this.set({
+       modelJson: json.body[this.jsonKey],
+       topLevelJson: json
+     });
+
+     if (isFunction(this.afterUpdate)) this.afterUpdate(options);
+   }
+ });
+});
+
 // BaseModel.addClassAction('load', function(id) {
 //  return API.request({
-//    endpoint: `${this.urlRoot}/${id}`,
-//    onSuccess: (json) => {
-//      this.set({
-//        modelJson: json[this.jsonKey],
-//        topLevelJson: json
+//   endpoint: `${this.urlRoot}/${id}`,
+//     onSuccess: (json) => {
+// console.log("")
+//       json.body.forEach(modelJson => {
+//       	this.set({ modelJson })
 //       });
+//      }
+//   });
+// });
+
+// BaseModel.addAction('destroy', function() {
+//   return API.request({
+//     method: 'del',
+//     endpoint: `${this.urlRoot}/${this.id}`,
+//     onSuccess: (options = {}) => {
+//       let { json, requestId } = options;
+//       this.onDestroy();
 //     }
-//   })
+//   });
 // });
 
 // BaseModel.addAction('destroy', function(id) {
@@ -72,21 +112,6 @@ BaseModel.addClassAction('loadAll', function() {
 /*   }); */
 /* }); */
 
-/* BaseModel.addAction('update', function(attributes = {}) { */
-/*   return API.request({ */
-/*     method: 'put', */
-/*     data: attributes, */
-/*     endpoint: `${this.urlRoot}/${this.id}`, */
-/*     onSuccess: (json) => { */
-/*       this.set({ */
-/*         modelJson: json[this.jsonKey], */
-/*         topLevelJson: json */
-/*       }); */
-
-/*       if (isFunction(this.afterUpdate)) this.afterUpdate(options); */
-/*     } */
-/*   }); */
-/* }); */
 
 
 
