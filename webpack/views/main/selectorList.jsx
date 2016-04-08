@@ -1,7 +1,7 @@
 import Select2 from 'react-select2-wrapper';
 import 'react-select2-wrapper/css/select2.css';
 import React, { PropTypes, Component } from 'react';
-import { Dashboard }             from 'models';
+import { Dashboard }                   from 'models';
 
 export default class SelectorList extends Component {
   static propTypes = {
@@ -18,9 +18,7 @@ export default class SelectorList extends Component {
 
   handleAdd = () => {
     var result = Dashboard.all().filter(function( obj ) { return obj.id == 1; });
-
     let cityId = this.refs.selectCity.el.context.value
-
     result[0].update({"city_id": cityId})
   }
 
@@ -29,8 +27,8 @@ export default class SelectorList extends Component {
     return (
       <div>
         <div className="small-offset-2 small-4 columns">
-
             <Select2
+              value={ value }
               ref="selectCity"
               data={ this.props.cities }
             />
