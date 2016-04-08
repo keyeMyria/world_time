@@ -11,13 +11,15 @@ class Dashboard extends BaseModel {
 	static relations = [
 		{
 			type: 'hasMany',
-			relatedModel: 'City'
+			relatedModel: 'City',
+      reverseRelation: true
 		}
 	];
 
 	addCity = (newCityId) => {
 		let currentCityIds = this.cities.map(city => city.id)
-		return this.update({ city_ids: currentCityIds.push(newCityId) })
+    currentCityIds.push(newCityId)
+		return this.update({ city_ids: currentCityIds })
 	}
 
 }
@@ -35,6 +37,6 @@ Dashboard.addClassAction('loadAll', function() {
 	});
 });
 
-window.Dashboard = Dashboard;
+// window.Dashboard = Dashboard;
 
 export default Dashboard;

@@ -4,7 +4,7 @@ export default class City extends BaseModel {
 
   static attributes = {
     text: '',
-    hours: null
+    hour: null,
   };
 
   static relations = [

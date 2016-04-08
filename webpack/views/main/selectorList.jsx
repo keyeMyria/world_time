@@ -20,7 +20,6 @@ export default class SelectorList extends Component {
   }
 
   handleAdd = () => {
-    console.log(this.props)
     this.props.dashboard.addCity(this.state.selectedCity)
   }
 

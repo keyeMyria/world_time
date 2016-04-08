@@ -14,15 +14,12 @@ class Api::V1::DashboardsController < Api::V1::BaseController
     @dashboard = Dashboard.find(params[:id])
     @dashboard.update(dashboard_params)
     render json: @dashboard, serializer: DashboardSerializer
-    # respond_with @dashboard, serializer: DashboardSerializer
-
   end
 
 private
 
   def dashboard_params
-    params.permit(:city_ids)
+    params.permit(city_ids: [])
   end
-
 
 end
