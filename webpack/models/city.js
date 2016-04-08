@@ -1,3 +1,5 @@
+'use strict';
+
 import { BaseModel } from 'mobx-model';
 
 export default class City extends BaseModel {

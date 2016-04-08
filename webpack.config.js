@@ -69,6 +69,7 @@ var config = {
   resolve: {
     root: path.join(__dirname, 'webpack'),
     modulesDirectories: ['node_modules'],
+    extensions: ['', '.js', '.jsx']
   },
 
   // externals: {

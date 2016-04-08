@@ -54,16 +54,15 @@ BaseModel.addAction('update', function(attributes = {}) {
 //   });
 // });
 
-// BaseModel.addAction('destroy', function() {
-//   return API.request({
-//     method: 'del',
-//     endpoint: `${this.urlRoot}/${this.id}`,
-//     onSuccess: (options = {}) => {
-//       let { json, requestId } = options;
-//       this.onDestroy();
-//     }
-//   });
-// });
+BaseModel.addAction('destroy', function() {
+  return API.request({
+    method: 'del',
+    endpoint: `${this.urlRoot}/${this.id}`,
+    onSuccess: (response) => {
+      this.onDestroy();
+    }
+  });
+});
 
 // BaseModel.addAction('destroy', function(id) {
 //   return API.request({

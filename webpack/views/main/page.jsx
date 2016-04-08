@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SelectorList         from 'views/main/selectorList.jsx';
-import DashboardList        from 'views/main/dashboardList.jsx';
+import SelectorList         from 'views/main/selectorList';
+import CityList        from 'views/main/CityList';
 import { observer }         from 'mobx-react';
 import { City }             from 'models';
 import { Dashboard }        from 'models';
@@ -8,23 +8,16 @@ import { Dashboard }        from 'models';
 @observer
 export default class Page extends Component {
 
+  state = {
+    loading: false
+  };
+
   componentWillMount() {
-    this.setState({ loadingCity: true, loadingDashboard: true });
+    this.setState({ loading: true });
 
-    City.loadAll().then(response => {
-      if (response.ok) {
-        this.setState({ loadingCity: false })
-      }
+    Promise.all([ City.loadAll(), Dashboard.loadAll() ]).then((responses = []) => {
+      this.setState({ loading: false });
     });
-
-    Dashboard.loadAll().then(response => {
-      if (response.ok) {
-        this.setState({ loadingDashboard: false })
-        this.setState({ dashboard: Dashboard.get(1) })
-        this.setState({ cities: Dashboard.get(1).cities.slice() })
-      }
-    });
-
   }
 
   renderLoading() {
@@ -32,23 +25,20 @@ export default class Page extends Component {
   }
 
   renderView() {
-    // refactor
-    if (this.state.cities) {
-      return (
-        <div className="center">
-          <h1> Main page </h1>
-          <SelectorList  cities={City.all()} dashboard={this.state.dashboard}/>
-          <DashboardList cities={this.state.cities}  />
-        </div>
-      )
-    } else {
-      return this.renderLoading()
-    }
+    let dashboard = Dashboard.get(1);
+    let cities = dashboard.cities.slice();
 
+    return (
+      <div className="center">
+        <h1> Main page </h1>
+        <SelectorList dashboard={ dashboard }/>
+        <CityList dashboard={ dashboard } />
+      </div>
+    )
   }
 
   render() {
-    return this.state.loadingCity || this.state.loadingDashboard ? this.renderLoading() : this.renderView();
+    return this.state.loading ? this.renderLoading() : this.renderView();
   }
 
 }
