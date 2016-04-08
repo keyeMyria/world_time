@@ -1,23 +1,40 @@
-import { BaseModel } from 'mobx-model';
+import { API, BaseModel } from 'mobx-model';
+import { pluralize } from 'inflection';
 
-export default class Dashboard extends BaseModel {
+class Dashboard extends BaseModel {
 
-  static attributes = {
-    text: null,
-    hours: null
-  }
+	static attributes = {
+		city_ids: null,
+		hours:    null
+	}
 
-  // static relations = [
-  //   {
-  //     type: 'hasMany',
-  //     relatedModel: 'TimeZone',
-  //     reverseRelation: true
-  //   },
-  //   {
-  //     type: 'hasOne',
-  //     relatedModel: 'User',
-  //     reverseRelation: true
-  //   }
-  // ];
+	static relations = [
+		{
+			type: 'hasMany',
+			relatedModel: 'City'
+		}
+	];
+
+	addCity = (newCityId) => {
+		let currentCityIds = this.cities.map(city => city.id)
+		return this.update({ city_ids: currentCityIds.push(newCityId) })
+	}
 
 }
+
+Dashboard.addClassAction('loadAll', function() {
+	return API.request({
+	 endpoint: this.urlRoot,
+	  onSuccess: (response) => {
+	  	let json = response.body;
+
+	    json[pluralize(this.jsonKey)].forEach(modelJson => {
+	    	this.set({ modelJson, topLevelJson: json })
+	    });
+	   }
+	});
+});
+
+window.Dashboard = Dashboard;
+
+export default Dashboard;

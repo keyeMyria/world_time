@@ -4,22 +4,24 @@ import React, { PropTypes, Component } from 'react';
 import { Dashboard }                   from 'models';
 
 export default class SelectorList extends Component {
+
   static propTypes = {
+    // dashboard: PropTypes.object.isRequired
+    dashboard: PropTypes.object,
     cities: PropTypes.arrayOf(PropTypes.object)
   }
 
-  componentWillMount() {
-    Dashboard.load(1).then(response => {
-      if (response.ok) {
-        this.setState({ ready: true})
-      }
-    });
+  state = {
+    selectedCity: 1
+  }
+
+  handleSelectedCity = (e) => {
+    this.setState({ selectedCity: parseInt(e.target.value) })
   }
 
   handleAdd = () => {
-    var result = Dashboard.all().filter(function( obj ) { return obj.id == 1; });
-    let cityId = this.refs.selectCity.el.context.value
-    result[0].update({"city_id": cityId})
+    console.log(this.props)
+    this.props.dashboard.addCity(this.state.selectedCity)
   }
 
   render() {
@@ -28,9 +30,10 @@ export default class SelectorList extends Component {
       <div>
         <div className="small-offset-2 small-4 columns">
             <Select2
-              value={ value }
+              value={ this.state.selectedCity }
               ref="selectCity"
               data={ this.props.cities }
+              onChange={ this.handleSelectedCity }
             />
           </div>
 

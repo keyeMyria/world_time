@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SelectorList         from 'views/main/selectorList.jsx';
-import TimeZonesList        from 'views/main/timeZoneList.jsx';
+import DashboardList        from 'views/main/dashboardList.jsx';
 import { observer }         from 'mobx-react';
 import { City }             from 'models';
 
@@ -8,32 +8,41 @@ import { City }             from 'models';
 export default class Page extends Component {
 
   componentWillMount() {
-    this.setState({ loading: true });
+    this.setState({ loadingCity: true, loadingDashboard: true });
 
     City.loadAll().then(response => {
       if (response.ok) {
-        this.setState({ loading: false })
+        this.setState({ loadingCity: false })
       }
     });
+
+    Dashboard.loadAll().then(response => {
+      if (response.ok) {
+        this.setState({ loadingDashboard: false })
+      }
+    });
+
   }
 
   renderLoading() {
     return <h1 className="center">Loading...</h1>
   }
 
-  renderTimeZones() {
+  renderView() {
     return (
       <div className="center">
         <h1> Main page </h1>
-        <SelectorList cities ={City.all()}/>
-        <TimeZonesList />
+        <SelectorList cities={City.all()} dashboard={Dashboard.get(1)}/>
+        <DashboardList dashboard={Dashboard.get(1)}/>
       </div>
     )
   }
 
   render() {
-    return this.state.loading ? this.renderLoading() : this.renderTimeZones();
+    return this.state.loadingCity && this.state.loadingDashboard ? this.renderLoading() : this.renderView();
   }
+
 }
+
 
 

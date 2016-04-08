@@ -2,7 +2,7 @@ import { API } from 'mobx-model';
 // import auth from 'lib/auth';
 
 API.config({
-  urlRoot: '/api/v1/',
+  urlRoot: '/api/v1',
   requestHeaders: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'

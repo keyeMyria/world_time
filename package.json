@@ -4,10 +4,11 @@
   "dependencies": {
     "foundation-sites": "^6.2.0",
     "foundation-sites-loader": "^1.0.1",
-    "jquery": "^2.2.3",
-    "lodash": "^4.8.2",
     "history": "^2.0.1",
+    "inflection": "^1.9.0",
+    "jquery": "^2.2.3",
     "jwt-decode": "^2.0.1",
+    "lodash": "^4.8.2",
     "mobx": "^2.0.5",
     "mobx-model": "0.0.18",
     "mobx-react": "^3.0.3",

@@ -7,31 +7,22 @@ class Api::V1::DashboardsController < Api::V1::BaseController
 
   def show
     @dashboard = Dashboard.find(params[:id])
-    # respond_with @dashboard
-    render :json => @dashboard, :serializer => DashboardSerializer
+    respond_with @dashboard, serializer: DashboardSerializer
   end
 
   def update
-    @dashboard = Dashboard.first
-    @city = City.where(id: params[:city_id]).take
-    # @dashboard.cities << @city if @city.present?
-    # binding.pry
-    # @dashboard.update()
-    # respond_with @dashboard, each_serializer: DashboardSerializer
-    # respond_with @dashboard, each_serializer: DashboardSerializer
-
-    # @dashboard.update(city_ids: @city.id)
-    # respond_with @dashboard, each_serializer: DashboardSerializer
-    # binding.pry
-    if @dashboard.cities << @city
-      respond_with @dashboard, each_serializer: DashboardSerializer
-    else
-      render nothing: true, status: 404
-    end
-
+    @dashboard = Dashboard.find(params[:id])
+    @dashboard.update(dashboard_params)
+    render json: @dashboard, serializer: DashboardSerializer
+    # respond_with @dashboard, serializer: DashboardSerializer
 
   end
-  # def create
-  #   binding.pry
-  # end
+
+private
+
+  def dashboard_params
+    params.permit(:city_ids)
+  end
+
+
 end
