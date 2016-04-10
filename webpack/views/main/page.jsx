@@ -42,7 +42,6 @@ export default class Page extends Component {
         <SelectorList dashboard={ dashboard }/>
         <CityList dashboard={ dashboard } />
 
-        <button className="button" onClick={ this.handleDestroy(dashboard) } >Destroy All</button>
 
       </div>
     )

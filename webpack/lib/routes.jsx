@@ -1,8 +1,9 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import Layout from 'views/layout/layout.jsx';
-import Notfound from 'views/errors/not_found.jsx';
+import Layout from 'views/layout/layout';
+import Test from 'views/test/page';
+import Notfound from 'views/errors/not_found';
 
 // import Page from 'views/products/search';
 // import ProductSearch from 'views/products/search';
@@ -21,6 +22,7 @@ import Notfound from 'views/errors/not_found.jsx';
 const routes =
   <Router history={ hashHistory }>
     <Route path='/' component={ Layout } />
+    <Route path='/test' component={ Test } />
     <Route path="*" component={ Notfound } />
   </Router>
 

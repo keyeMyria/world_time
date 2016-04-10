@@ -13,8 +13,12 @@ class Api::V1::DashboardsController < Api::V1::BaseController
   def update
 
     @dashboard = Dashboard.find(params[:id])
-    # binding.pry
+    binding.pry
+
     # @dashboard.city_ids
+
+
+
     @dashboard.update(dashboard_params)
     render json: @dashboard, serializer: DashboardSerializer
   end
@@ -22,7 +26,8 @@ class Api::V1::DashboardsController < Api::V1::BaseController
 private
 
   def dashboard_params
-    params.permit(city_ids: [])
+    params[:city_ids] = [] if params[:city_ids].nil?
+    params.permit(city_ids: [] )
   end
 
 end

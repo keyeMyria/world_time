@@ -16,6 +16,3 @@ export default class Layout extends Component {
   }
 }
 
-
-// { this.props.children }
-// <Sidebar />

@@ -14,10 +14,14 @@ export default class CityList extends Component {
     return <h1 className="center">Loading...</h1>
   }
 
+  handleDestroyAll = () => {
+    console.log("handleDestroy all")
+    this.props.dashboard.removeCity()
+  }
+
   renderView() {
     let dashboard = this.props.dashboard;
     let cities = this.props.dashboard.cities.slice();
-
 
     return (
         <div className="center">
@@ -29,6 +33,7 @@ export default class CityList extends Component {
               dashboard={ dashboard }
             />
           )}
+        <button className="button" onClick={ this.handleDestroyAll } >Destroy All</button>
         </div>
     )
   }

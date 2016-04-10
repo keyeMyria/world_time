@@ -19,6 +19,9 @@ var config = {
   },
 
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+
     new webpack.ProvidePlugin({
       "jQuery":       "jquery",
     }),
@@ -37,16 +40,10 @@ var config = {
       {
         test: /\.jsx$/,
         loaders: ['eslint'],
-        // include: [
-        //   path.resolve(__dirname, "src"),
-        // ],
       },
       {
         test: /\.js$/,
         loaders: ['eslint'],
-        // include: [
-        //   path.resolve(__dirname, "src"),
-        // ],
       }
     ],
 

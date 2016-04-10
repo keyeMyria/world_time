@@ -12,17 +12,10 @@ export default class City extends Component {
     show: true
   }
 
-  onDestroy = () => {
-    // let dashboard = this.props.dashboard
-    // let city = this.props.dashboard.cities.slice()
-    // console.log(dashboard)
-    // console.log(city)
-    // console.log(this)
-    // dashboard.removeCity(this.props.city.id)
-    this.props.dashboard.removeCity(this.props.city.id)
+  handleDestroy = () => {
+    console.log("handleDestroy")
+    this.props.dashboard.removeCity(this.props.city)
   }
-
-
 
   renderEmpty() {
     return <div />
@@ -34,7 +27,7 @@ export default class City extends Component {
         <div className="small-4 columns"> { this.props.city.text } </div>
         <div className="small-4 columns"> { this.props.city.hour } </div>
         <div className="small-4 columns">
-          <button onClick={ this.onDestroy } className="button"> Destroy </button>
+          <button onClick={ this.handleDestroy } className="button"> Destroy </button>
         </div>
         <div className="clearfix"></div>
       </div>
