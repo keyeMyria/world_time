@@ -5,21 +5,28 @@ import { observer } from 'mobx-react';
 export default class City extends Component {
 
   static propTypes = {
-    onDestroy: Proptypes.func
+    onDestroy: React.PropTypes.func
   }
-
-  handleClick = () => {
-    this.props.onDestroy()
-  }
-
-  // destroyCity(e) {
-  // }
 
   state = {
     show: true
   }
 
-  renderEmpty() { return <div /> }
+  onDestroy = () => {
+    // let dashboard = this.props.dashboard
+    // let city = this.props.dashboard.cities.slice()
+    // console.log(dashboard)
+    // console.log(city)
+    // console.log(this)
+    // dashboard.removeCity(this.props.city.id)
+    this.props.dashboard.removeCity(this.props.city.id)
+  }
+
+
+
+  renderEmpty() {
+    return <div />
+  }
 
   renderView() {
     return(
@@ -27,7 +34,7 @@ export default class City extends Component {
         <div className="small-4 columns"> { this.props.city.text } </div>
         <div className="small-4 columns"> { this.props.city.hour } </div>
         <div className="small-4 columns">
-          <button onClick={ this.handleClick } className="button"> Destroy </button>
+          <button onClick={ this.onDestroy } className="button"> Destroy </button>
         </div>
         <div className="clearfix"></div>
       </div>

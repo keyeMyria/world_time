@@ -1,13 +1,12 @@
 import Select2 from 'react-select2-wrapper';
 import 'react-select2-wrapper/css/select2.css';
 import React, { PropTypes, Component } from 'react';
-import { City }                   from 'models';
+import { City } from 'models';
 
 export default class SelectorList extends Component {
 
   static propTypes = {
-    // dashboard: PropTypes.object.isRequired
-    dashboard: PropTypes.object
+    dashboard: PropTypes.object.isRequired
   }
 
   state = {
@@ -21,6 +20,7 @@ export default class SelectorList extends Component {
   handleAdd = () => {
     this.props.dashboard.addCity(this.state.selectedCity)
   }
+
 
   render() {
     let cities = City.all();

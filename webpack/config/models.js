@@ -34,12 +34,22 @@ BaseModel.addAction('update', function(attributes = {}) {
     data: attributes,
     endpoint: `${this.urlRoot}/${this.id}`,
     onSuccess: (json) => {
-     this.set({
-       modelJson: json.body[this.jsonKey],
-       topLevelJson: json
-     });
+      this.set({
+        modelJson: json.body[this.jsonKey],
+        topLevelJson: json
+    });
    }
  });
+});
+
+BaseModel.addAction('destroy', function() {
+  return API.request({
+    method: 'del',
+    endpoint: `${this.urlRoot}/${this.id}`,
+    onSuccess: (response) => {
+      this.onDestroy();
+    }
+  });
 });
 
 // BaseModel.addClassAction('load', function(id) {
@@ -54,15 +64,6 @@ BaseModel.addAction('update', function(attributes = {}) {
 //   });
 // });
 
-BaseModel.addAction('destroy', function() {
-  return API.request({
-    method: 'del',
-    endpoint: `${this.urlRoot}/${this.id}`,
-    onSuccess: (response) => {
-      this.onDestroy();
-    }
-  });
-});
 
 // BaseModel.addAction('destroy', function(id) {
 //   return API.request({
