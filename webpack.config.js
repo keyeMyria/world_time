@@ -33,6 +33,22 @@ var config = {
   ],
 
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx$/,
+        loaders: ['eslint'],
+        // include: [
+        //   path.resolve(__dirname, "src"),
+        // ],
+      },
+      {
+        test: /\.js$/,
+        loaders: ['eslint'],
+        // include: [
+        //   path.resolve(__dirname, "src"),
+        // ],
+      }
+    ],
 
     loaders: [{
       test: /\.jsx?$/,

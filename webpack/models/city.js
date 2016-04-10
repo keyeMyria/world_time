@@ -4,10 +4,10 @@ import { BaseModel } from 'mobx-model';
 
 export default class City extends BaseModel {
 
-  static attributes = {
+  static attributes = ({
     text: '',
     hour: null,
-  };
+  });
 
   static relations = [
     {
