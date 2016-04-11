@@ -1,4 +1,5 @@
 class Api::V1::DashboardsController < Api::V1::BaseController
+  before_action :city_ids_params, only: [:update]
 
   def index
     @dashboards = Dashboard.all
@@ -11,12 +12,9 @@ class Api::V1::DashboardsController < Api::V1::BaseController
   end
 
   def update
-
     @dashboard = Dashboard.find(params[:id])
-
     # binding.pry
     # @dashboard.city_ids
-
     @dashboard.update(dashboard_params)
     render json: @dashboard, serializer: DashboardSerializer
   end
@@ -24,8 +22,11 @@ class Api::V1::DashboardsController < Api::V1::BaseController
 private
 
   def dashboard_params
-    params[:city_ids] = [] if params[:city_ids].nil?
     params.permit(city_ids: [] )
+  end
+
+  def city_ids_params
+    params[:city_ids] ||= [] if params.has_key?(:city_ids)
   end
 
 end

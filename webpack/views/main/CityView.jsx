@@ -1,24 +1,18 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { observer } from 'mobx-react';
 import { City } from 'models';
 
 @observer
 export default class CityView extends Component {
 
-  static propTypes = {
-    onDestroy: React.PropTypes.func
-  }
-
   state = {
     show: true
   }
 
-  componentWillMount() {
-    this.style = {
-      color: "green",
-    }
+  static propTypes = {
+    dashboard: PropTypes.object.isRequired,
+    city: PropTypes.object.isRequired
   }
-
 
   handleDestroy = () => {
     console.log("handleDestroy")
@@ -29,12 +23,14 @@ export default class CityView extends Component {
     City.setCityHome({city_id: this.props.city.id})
   }
 
-  renderEmpty() {
-    return <div />
+  renderLoading() {
+    return <h1 className="center">Loading...</h1>
   }
 
   buttonCityHome = () => {
-    if (this.props.city.home) {
+    let city = this.props.city
+
+    if (city.home) {
       return (
         <div className="center small-3 columns">
           <div> Home </div>
@@ -54,18 +50,18 @@ export default class CityView extends Component {
 
     return(
       <div className={city.home ? "callout success colums" : "callout colums"} >
-        { this.buttonCityHome() }
-        <div className="small-3 columns"> { city.text } </div>
-        <div className="small-3 columns"> { city.hour } </div>
+        {this.buttonCityHome()}
+        <div className="small-3 columns">{city.text}</div>
+        <div className="small-3 columns">{city.hour}</div>
         <div className="small-3 columns">
-          <button onClick={ this.handleDestroy } className="button"> Destroy </button>
+          <button onClick={this.handleDestroy} className="button">Destroy</button>
         </div>
-        <div className="clearfix"></div>
+        <div className="clearfix" />
       </div>
     )
   }
 
   render() {
-    return this.state.show ? this.renderView() : this.renderEmpty()
+    return this.state.show ? this.renderView() : this.renderLoading()
   }
 }

@@ -6,10 +6,10 @@ import { pluralize } from 'inflection';
 
 class Dashboard extends BaseModel {
 
-    static attributes = {
-	    city_ids: null,
-	    hours:    null
-    }
+	static attributes = {
+		city_ids: null,
+		hours:    null
+	}
 
 	static relations = [
 		{
@@ -51,5 +51,4 @@ Dashboard.addClassAction('loadAll', function() {
 	});
 });
 
-// window.Dashboard = Dashboard;
 export default Dashboard;

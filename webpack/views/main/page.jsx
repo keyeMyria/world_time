@@ -23,11 +23,6 @@ export default class Page extends Component {
     });
   }
 
-  handleDestroy = (dashboard) => {
-    console.log("handleDestroy")
-    // dashboard.removeCity()
-  }
-
   renderLoading() {
     return <h1 className="center">Loading...</h1>
   }

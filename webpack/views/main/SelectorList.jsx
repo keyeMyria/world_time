@@ -22,26 +22,25 @@ export default class SelectorList extends Component {
     this.props.dashboard.addCity(this.state.selectedCity)
   }
 
-
   render() {
     let cities = City.all();
 
     return (
       <div>
         <div className="small-offset-2 small-4 columns">
-            <Select2
-              value={ this.state.selectedCity }
-              ref="selectCity"
-              data={ cities }
-              onChange={ this.handleSelectedCity }
-            />
-          </div>
+          <Select2
+            value={ this.state.selectedCity }
+            ref="selectCity"
+            data={ cities }
+            onChange={ this.handleSelectedCity }
+          />
+        </div>
 
-          <div className="small-4 columns">
-            <button className="button" onClick={ this.handleAdd }> Add </button>
-          </div>
+        <div className="small-4 columns">
+          <button className="button" onClick={ this.handleAdd }> Add </button>
+        </div>
 
-          <div className="clearfix"></div>
+        <div className="clearfix"></div>
       </div>
     )
   }
