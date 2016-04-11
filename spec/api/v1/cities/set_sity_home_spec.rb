@@ -11,14 +11,8 @@ describe 'Cities API' do
       expect(response.body).to have_json_size(5)
     end
 
-    it 'returns 200 status code' do
+    it 'returns 200 status code', :lurker do
       expect(response).to be_success
-    end
-
-    %w(id text home hour).each do |attr|
-      it "does contain #{attr}" do
-        expect(response.body).to have_json_path("0/#{attr}")
-      end
     end
 
   end

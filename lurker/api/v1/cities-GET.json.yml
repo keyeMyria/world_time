@@ -1,0 +1,47 @@
+---
+description: city listing
+prefix: cities management
+requestParameters:
+  description: ''
+  type: object
+  additionalProperties: false
+  required: []
+  properties: {}
+responseCodes:
+- status: 200
+  successful: true
+  description: ''
+responseParameters:
+  type: array
+  items:
+    description: ''
+    type: object
+    additionalProperties: false
+    required:
+    - id
+    - name
+    - hour
+    - home
+    properties:
+      id:
+        description: ''
+        type: integer
+        example: 1186
+      name:
+        description: ''
+        type: string
+        example: Reginaldside
+      hour:
+        description: ''
+        type: 'null'
+        example: ''
+      home:
+        description: ''
+        type: boolean
+        example: false
+extensions:
+  method: GET
+  path_info: "/api/v1/cities"
+  path_params:
+    controller: api/v1/cities
+    action: index

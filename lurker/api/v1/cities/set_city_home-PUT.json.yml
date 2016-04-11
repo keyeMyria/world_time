@@ -1,0 +1,51 @@
+---
+description: city
+prefix: cities management
+requestParameters:
+  description: ''
+  type: object
+  additionalProperties: false
+  required: []
+  properties:
+    city_id:
+      description: ''
+      type: string
+      example: '1313'
+responseCodes:
+- status: 200
+  successful: true
+  description: ''
+responseParameters:
+  type: array
+  items:
+    description: ''
+    type: object
+    additionalProperties: false
+    required:
+    - id
+    - name
+    - hour
+    - home
+    properties:
+      id:
+        description: ''
+        type: integer
+        example: 1314
+      name:
+        description: ''
+        type: string
+        example: West Rebeca
+      hour:
+        description: ''
+        type: 'null'
+        example: ''
+      home:
+        description: ''
+        type: boolean
+        example: false
+extensions:
+  method: PUT
+  path_info: "/api/v1/cities/set_city_home"
+  path_params:
+    controller: api/v1/cities
+    action: set_city_home

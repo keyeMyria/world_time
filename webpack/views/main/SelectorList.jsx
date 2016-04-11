@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import Select2 from 'react-select2-wrapper';
-import 'react-select2-wrapper/css/select2.css';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 import { City } from 'models';
 
@@ -11,11 +11,11 @@ export default class SelectorList extends Component {
   }
 
   state = {
-    selectedCity: 1
+    selectedCity: 10
   }
 
   handleSelectedCity = (e) => {
-    this.setState({ selectedCity: parseInt(e.target.value) })
+    this.setState({ selectedCity: parseInt(e.value) })
   }
 
   handleAdd = () => {
@@ -23,16 +23,16 @@ export default class SelectorList extends Component {
   }
 
   render() {
-    let cities = City.all();
+    let cities = City.all().map(city => city.toJsonForSelect())
 
     return (
       <div>
         <div className="small-offset-2 small-4 columns">
-          <Select2
-            value={ this.state.selectedCity }
-            ref="selectCity"
-            data={ cities }
-            onChange={ this.handleSelectedCity }
+          <Select
+              name="form-field-name"
+              value={this.state.selectedCity}
+              onChange={this.handleSelectedCity}
+              options={ cities }
           />
         </div>
 
@@ -45,5 +45,4 @@ export default class SelectorList extends Component {
     )
   }
 }
-
 

@@ -1,10 +1,6 @@
 class CitySerializer < ActiveModel::Serializer
 
-  attributes :id, :text, :hour, :home
-
-  def text
-    object.try(:name)
-  end
+  attributes :id, :name, :hour, :home
 
   def hour
     object.try(:hour).try(:zone)

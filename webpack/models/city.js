@@ -4,7 +4,7 @@ import { API, BaseModel } from 'mobx-model';
 class City extends BaseModel {
 
   static attributes = ({
-    text: '',
+    name: '',
     hour: null,
     home: false,
   });
@@ -16,6 +16,13 @@ class City extends BaseModel {
       reverseRelation: true
     }
   ]
+
+  toJsonForSelect() {
+     return {
+       value: this.id,
+       label: this.name
+     }
+   }
 
 }
 

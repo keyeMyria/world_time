@@ -51,7 +51,7 @@ export default class CityView extends Component {
     return(
       <div className={city.home ? "callout success colums" : "callout colums"} >
         {this.buttonCityHome()}
-        <div className="small-3 columns">{city.text}</div>
+        <div className="small-3 columns">{city.name}</div>
         <div className="small-3 columns">{city.hour}</div>
         <div className="small-3 columns">
           <button onClick={this.handleDestroy} className="button">Destroy</button>
