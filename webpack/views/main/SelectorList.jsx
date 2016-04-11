@@ -1,6 +1,7 @@
+import React, { PropTypes, Component } from 'react';
 import Select2 from 'react-select2-wrapper';
 import 'react-select2-wrapper/css/select2.css';
-import React, { PropTypes, Component } from 'react';
+
 import { City } from 'models';
 
 export default class SelectorList extends Component {

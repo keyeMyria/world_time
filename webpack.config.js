@@ -71,7 +71,7 @@ var config = {
       test:   /\.css$/,
       loader: 'style-loader!css-loader'
     }, {
-      test: /\.scss$/,
+      test: /\.sass$/,
       loaders: ['style', 'css', 'sass'],
     }, {
       test:   /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
@@ -82,7 +82,7 @@ var config = {
   resolve: {
     root: path.join(__dirname, 'webpack'),
     modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', "css", "sass", "scss"]
   },
 
   // externals: {

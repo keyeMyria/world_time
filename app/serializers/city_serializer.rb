@@ -1,6 +1,6 @@
 class CitySerializer < ActiveModel::Serializer
 
-  attributes :id, :text, :hour
+  attributes :id, :text, :hour, :home
 
   def text
     object.try(:name)

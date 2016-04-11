@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import SelectorList from 'views/main/SelectorList';
-import CityList from 'views/main/CityList';
 import { observer } from 'mobx-react';
 import { City } from 'models';
 import { Dashboard } from 'models';
+
+import SelectorList from 'views/main/SelectorList';
+import CityList from 'views/main/CityList';
 
 @observer
 export default class Page extends Component {
@@ -23,9 +24,8 @@ export default class Page extends Component {
   }
 
   handleDestroy = (dashboard) => {
-    dashboard.removeCity()
-    // console.log(this)
-
+    console.log("handleDestroy")
+    // dashboard.removeCity()
   }
 
   renderLoading() {
@@ -35,14 +35,11 @@ export default class Page extends Component {
   renderView() {
     let dashboard = Dashboard.get(1);
 
-
     return (
       <div className="center">
         <h1> Main page </h1>
         <SelectorList dashboard={ dashboard }/>
         <CityList dashboard={ dashboard } />
-
-
       </div>
     )
   }

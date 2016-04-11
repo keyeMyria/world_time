@@ -112,4 +112,4 @@ BaseModel.addAction('destroy', function() {
 
 
 
-     // if (isFunction(this.afterUpdate)) this.afterUpdate(options);
+ // if (isFunction(this.afterUpdate)) this.afterUpdate(options);
