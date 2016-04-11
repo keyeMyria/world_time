@@ -1,0 +1,44 @@
+---
+description: dashboard
+prefix: dashboards management
+requestParameters:
+  description: ''
+  type: object
+  additionalProperties: false
+  required: []
+  properties: {}
+responseCodes:
+- status: 200
+  successful: true
+  description: ''
+responseParameters:
+  description: ''
+  type: object
+  additionalProperties: false
+  required: []
+  properties:
+    cities:
+      type: array
+      items: []
+    dashboard:
+      description: ''
+      type: object
+      additionalProperties: false
+      required:
+      - id
+      - city_ids
+      properties:
+        id:
+          description: ''
+          type: integer
+          example: 172
+        city_ids:
+          type: array
+          items: []
+extensions:
+  method: GET
+  path_info: "/api/v1/dashboards/172"
+  path_params:
+    controller: api/v1/dashboards
+    action: show
+    id: '172'

@@ -6,7 +6,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'shoulda-matchers'
 
-# require 'lurker/spec_helper'
+require 'lurker/spec_helper'
 # require 'cancan/matchers'
 # require 'sidekiq/testing'
 

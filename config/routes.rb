@@ -11,9 +11,7 @@ Rails.application.routes.draw do
         put :set_city_home, on: :collection
       end
 
-
       resources :dashboards, defaults: { format: :json }
-      resources :operation_dashboards, defaults: { format: :json }, only: [:show]
 
     end
   end
