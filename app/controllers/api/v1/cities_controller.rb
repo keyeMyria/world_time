@@ -1,7 +1,7 @@
 class Api::V1::CitiesController < Api::V1::BaseController
 
+
   def set_city_home
-    # binding.pry
     @city = City.find(params[:city_id])
 
     if @city.set_city_home
@@ -11,14 +11,11 @@ class Api::V1::CitiesController < Api::V1::BaseController
       render noting: true, status: 404
     end
 
-
   end
-
-
 
   def show
     @city = City.find(params[:id])
-    respond_with @city, serializer: CitySerializer
+    respond_with @city, serializer: CitySerializer, root: false
   end
 
   def index

@@ -6,7 +6,7 @@ class City extends BaseModel {
   static attributes = ({
     text: '',
     hour: null,
-    home: "",
+    home: false,
   });
 
   static relations = [
