@@ -15,12 +15,11 @@ export default class CityView extends Component {
   }
 
   handleDestroy = () => {
-    console.log("handleDestroy")
-    this.props.dashboard.removeCity(this.props.city)
+    this.props.dashboard.actionRemoveCity(this.props.city)
   }
 
   handleHome = () => {
-    City.setCityHome({city_id: this.props.city.id})
+    this.props.city.setHome()
   }
 
   renderLoading() {
@@ -47,6 +46,7 @@ export default class CityView extends Component {
 
   renderView() {
     let city = this.props.city
+    City.loadAll()
 
     return(
       <div className={city.home ? "callout success colums" : "callout colums"} >

@@ -26,14 +26,14 @@ class City extends BaseModel {
 
 }
 
-BaseModel.addClassAction('setCityHome', function(attributes = {}) {
+BaseModel.addAction('setHome', function(attributes = {}) {
   return API.request({
     method: 'put',
     data: attributes,
-    endpoint: `${this.urlRoot}/set_city_home`,
+    endpoint: `${this.urlRoot}/${this.id}/set_home`,
     onSuccess: (response) => {
-      console.log(response)
-      response.body.forEach(modelJson => {
+      let json = response.body
+      json.forEach(modelJson => {
       	this.set({ modelJson })
       });
    }

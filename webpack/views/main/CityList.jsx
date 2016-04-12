@@ -12,19 +12,13 @@ export default class CityList extends Component {
     dashboard: PropTypes.object.isRequired
   }
 
-  handleDestroyAll = () => {
-    console.log("handleDestroy all")
-    this.props.dashboard.removeCity()
-  }
-
   renderLoading() {
     return <h1 className="center">Loading...</h1>
   }
 
   renderView() {
     let dashboard = this.props.dashboard;
-    let cities = this.props.dashboard.cities.slice();
-    // refactor?
+    let cities = dashboard.cities.slice();
     let cities_sort = (_.sortBy(cities, function(city) { return city.home })).reverse()
 
     return (

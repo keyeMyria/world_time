@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :cities, defaults: { format: :json } do
-        put :set_city_home, on: :collection
+        put :set_home, on: :member
       end
 
       resources :dashboards, defaults: { format: :json }

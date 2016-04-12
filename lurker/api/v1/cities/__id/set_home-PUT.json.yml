@@ -1,0 +1,44 @@
+---
+description: city
+prefix: cities management
+requestParameters:
+  description: ''
+  type: object
+  additionalProperties: false
+  required: []
+  properties: {}
+responseCodes:
+- status: 200
+  successful: true
+  description: ''
+responseParameters:
+  type: array
+  items:
+    description: ''
+    type: object
+    additionalProperties: false
+    required: []
+    properties:
+      id:
+        description: ''
+        type: integer
+        example: 1578
+      name:
+        description: ''
+        type: string
+        example: Prohaskashire
+      hour:
+        description: ''
+        type: 'null'
+        example: ''
+      home:
+        description: ''
+        type: boolean
+        example: false
+extensions:
+  method: PUT
+  path_info: "/api/v1/cities/1577/set_home"
+  path_params:
+    controller: api/v1/cities
+    action: set_home
+    id: '1577'

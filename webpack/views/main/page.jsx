@@ -17,9 +17,8 @@ export default class Page extends Component {
     this.setState({ loading: true });
 
     Promise.all( [ City.loadAll(), Dashboard.loadAll() ])
-      .then((responses = []) => {
-        this.setState({ loading: false
-      });
+    .then((responses = []) => {
+      this.setState({ loading: false });
     });
   }
 
@@ -29,6 +28,7 @@ export default class Page extends Component {
 
   renderView() {
     let dashboard = Dashboard.get(1);
+    console.log(dashboard)
 
     return (
       <div className="center ">

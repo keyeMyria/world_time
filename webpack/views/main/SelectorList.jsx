@@ -19,7 +19,8 @@ export default class SelectorList extends Component {
   }
 
   handleAdd = () => {
-    this.props.dashboard.addCity(this.state.selectedCity)
+    this.props.dashboard.actionAddCity(this.state.selectedCity)
+    City.loadAll()
   }
 
   render() {
@@ -37,11 +38,12 @@ export default class SelectorList extends Component {
               options={ cities }
           />
         </div>
-
         <div className="small-4 columns">
-          <button className="btn btn-default btn-xl" onClick={ this.handleAdd }> Add </button>
+          <button
+            className="btn btn-default btn-xl"
+            onClick={ this.handleAdd }
+          > Add </button>
         </div>
-
         <div className="clearfix"></div>
       </div>
     )

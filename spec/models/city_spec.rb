@@ -6,19 +6,19 @@ describe City do
   it { should have_many(:dashboards) }
   it { should belong_to(:hour) }
 
-  describe 'set_city_home' do
+  describe 'set_home' do
     let(:cities) { create_list(:city, 5) }
 
     it 'set self true home ' do
       city = cities.first
-      city.set_city_home
+      city.set_home
 
       expect(city.home).to be_truthy
     end
 
     it 'set other false home ' do
       city = cities.first
-      city.set_city_home
+      city.set_home
 
       cities.delete(city)
 

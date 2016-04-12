@@ -19,21 +19,15 @@ class Dashboard extends BaseModel {
 		}
 	];
 
-	addCity = (newCityId) => {
+	actionAddCity = (newCityId) => {
 		let currentCityIds = this.cities.map(city => city.id)
     currentCityIds.push(newCityId)
 		return this.update({ city_ids: currentCityIds })
 	}
 
-	removeCity = (City) => {
+	actionRemoveCity = (City) => {
 		let currentCityIds = this.cities.map(city => city.id)
-
-    if (City) {
-			_.remove(currentCityIds, function(n) { return n === City.id; })
-		} else {
-			currentCityIds.length = 0
-		}
-
+		_.remove(currentCityIds, function(n) { return n === City.id; })
 		return this.update({ city_ids: currentCityIds })
 	}
 
