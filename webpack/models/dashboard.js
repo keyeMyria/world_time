@@ -1,8 +1,6 @@
 'use strict';
 import { API, BaseModel } from 'mobx-model';
 import { pluralize } from 'inflection';
-// import { forEach } from 'lodash';
-// import _ from 'lodash';
 
 class Dashboard extends BaseModel {
 

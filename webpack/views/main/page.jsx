@@ -3,8 +3,9 @@ import { observer } from 'mobx-react';
 import { City } from 'models';
 import { Dashboard } from 'models';
 
-import SelectorList from 'views/main/SelectorList';
-import CityList from 'views/main/CityList';
+import SelectorList from 'views/main/selector_list';
+import CityList from 'views/main/city_list';
+
 
 @observer
 export default class Page extends Component {
@@ -28,7 +29,6 @@ export default class Page extends Component {
 
   renderView() {
     let dashboard = Dashboard.get(1);
-    console.log(dashboard)
 
     return (
       <div className="center ">
