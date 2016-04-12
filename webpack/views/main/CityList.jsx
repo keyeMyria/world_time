@@ -30,6 +30,7 @@ export default class CityList extends Component {
     return (
       <div className="center">
         <h1> List Current City </h1>
+        <br />
         { cities_sort.map((city) =>
           <CityView
             key={city.id}
@@ -37,10 +38,6 @@ export default class CityList extends Component {
             dashboard={dashboard}
           />
         )}
-        <button
-          className="button"
-          onClick={this.handleDestroyAll}
-        >Destroy All</button>
       </div>
     )
   }

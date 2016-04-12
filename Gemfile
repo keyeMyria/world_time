@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'frontend-generators'
+
 gem 'rails', '4.2.4'
 gem 'pg'
 

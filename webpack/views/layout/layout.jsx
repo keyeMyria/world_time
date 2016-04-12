@@ -7,10 +7,10 @@ import Page from 'views/main/page';
 export default class Layout extends Component {
   render() {
     return (
-      <div className="row" id='layout'>
-      	<Header />
-      	<Page />
-      	<Footer />
+      <div >
+        <Header />
+        <Page />
+        <Footer />
       </div>
     );
   }

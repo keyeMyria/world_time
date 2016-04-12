@@ -31,8 +31,8 @@ export default class Page extends Component {
     let dashboard = Dashboard.get(1);
 
     return (
-      <div className="center">
-        <h1> Main page </h1>
+      <div className="center ">
+        <br />
         <SelectorList dashboard={ dashboard }/>
         <CityList dashboard={ dashboard } />
       </div>

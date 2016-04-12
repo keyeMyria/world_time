@@ -26,8 +26,10 @@ export default class SelectorList extends Component {
     let cities = City.all().map(city => city.toJsonForSelect())
 
     return (
-      <div>
-        <div className="small-offset-2 small-4 columns">
+      <div className="bg-primary select">
+        <br />
+        <br />
+        <div className="col-xs-offset-2 col-xs-4">
           <Select
               name="form-field-name"
               value={this.state.selectedCity}
@@ -37,7 +39,7 @@ export default class SelectorList extends Component {
         </div>
 
         <div className="small-4 columns">
-          <button className="button" onClick={ this.handleAdd }> Add </button>
+          <button className="btn btn-default btn-xl" onClick={ this.handleAdd }> Add </button>
         </div>
 
         <div className="clearfix"></div>

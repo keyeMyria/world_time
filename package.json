@@ -2,8 +2,7 @@
   "name": "world-time",
   "version": "0.0.1",
   "dependencies": {
-    "foundation-sites": "^6.2.0",
-    "foundation-sites-loader": "^1.0.1",
+    "bootstrap": "3.3.6",
     "history": "^2.0.1",
     "inflection": "^1.9.0",
     "jquery": "^2.2.3",
@@ -18,7 +17,6 @@
     "react-dom": "0.14.8",
     "react-router": "^2.0.1",
     "react-select": "^1.0.0-beta12",
-    "react-select2-wrapper": "^0.5.3",
     "stats-webpack-plugin": "^0.2.1",
     "superagent": "^1.8.3",
     "webpack": "^1.9.11",

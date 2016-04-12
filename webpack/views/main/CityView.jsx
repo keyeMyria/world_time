@@ -32,14 +32,14 @@ export default class CityView extends Component {
 
     if (city.home) {
       return (
-        <div className="center small-3 columns">
+        <div className="center col-xs-3">
           <div> Home </div>
         </div>
       )
     } else {
       return (
-        <div className="small-3 columns">
-          <button onClick={ this.handleHome } className="button"> Home </button>
+        <div className="col-xs-3">
+          <button onClick={ this.handleHome } className="btn btn-primary page-scroll"> Home </button>
         </div>
       )
     }
@@ -51,10 +51,10 @@ export default class CityView extends Component {
     return(
       <div className={city.home ? "callout success colums" : "callout colums"} >
         {this.buttonCityHome()}
-        <div className="small-3 columns">{city.name}</div>
-        <div className="small-3 columns">{city.hour}</div>
-        <div className="small-3 columns">
-          <button onClick={this.handleDestroy} className="button">Destroy</button>
+        <div className="col-xs-3">{city.name}</div>
+        <div className="col-xs-3">{city.hour}</div>
+        <div className="col-xs-3">
+          <button onClick={this.handleDestroy} className="btn btn-default btn-xl">Destroy</button>
         </div>
         <div className="clearfix" />
       </div>
