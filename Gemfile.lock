@@ -150,6 +150,7 @@ GEM
     json_spec (1.1.4)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
+    jwt (1.5.4)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -205,6 +206,7 @@ GEM
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
+    rack-cors (0.4.0)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
@@ -369,6 +371,7 @@ DEPENDENCIES
   guard-livereload
   jbuilder (~> 2.0)
   json_spec
+  jwt
   launchy
   lurker
   meta_request
@@ -377,6 +380,7 @@ DEPENDENCIES
   pg
   pry
   quiet_assets
+  rack-cors
   rails (= 4.2.4)
   rails_admin
   responders
