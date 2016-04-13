@@ -4,6 +4,7 @@ export default class Footer extends Component {
  	render() {
  		return (
          <div className="footer center">
+          <div className="clearfix" />
            <br />
            <br />
            <br />

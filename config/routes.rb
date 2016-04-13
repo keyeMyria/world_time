@@ -2,21 +2,19 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }
 
-  get 'creatives/index'
   get "tests/test"
-
-  # post 'authenticate' => 'auth#authenticate'
+  get 'creatives/index'
 
   root 'home#index'
 
-  namespace :api do
-    namespace :v1 do
+  namespace :api, as: nil do
+    namespace :v1, as: nil do
 
+  devise_for :users, controllers: {
+    sessions: 'api/v1/users/sessions',
+    registrations: 'api/v1/users/registrations'
+  }
 
       get 'test', to: 'tests#test'
 

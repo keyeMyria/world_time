@@ -1,4 +1,5 @@
-class Users::SessionsController < Devise::SessionsController
+class Api::V1::Users::SessionsController < Devise::SessionsController
+
   require 'auth_token'
   skip_before_action :verify_authenticity_token
   respond_to :html, :json
@@ -17,3 +18,5 @@ class Users::SessionsController < Devise::SessionsController
   end
 
 end
+
+
