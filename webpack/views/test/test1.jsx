@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Test extends Component {
+export default class Test1 extends Component {
 
   handleLocal() {
     console.log("1111")

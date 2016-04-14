@@ -38,17 +38,13 @@ var config = {
   module: {
     preLoaders: [
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|js)?$/,
         loaders: ['eslint'],
       },
-      {
-        test: /\.js$/,
-        loaders: ['eslint'],
-      }
     ],
 
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.(jsx|js)?$/,
       exclude: /node_modules/,
       loader: 'babel',
       query: {
@@ -76,7 +72,17 @@ var config = {
     }, {
       test:   /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
       loader: 'file?name=[path][name].[ext]'
-    } ]
+    },
+    {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "url-loader?limit=10000&mimetype=application/font-woff"
+    },
+    {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "file-loader"
+    }
+    ]
+
   },
 
   resolve: {
@@ -84,11 +90,6 @@ var config = {
     modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.jsx', "css", "sass", "scss"]
   },
-
-  // externals: {
-  //     'react': 'React'
-  // },
-
 
 };
 

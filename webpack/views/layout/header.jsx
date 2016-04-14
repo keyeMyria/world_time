@@ -3,21 +3,21 @@ import auth from 'lib/auth';
 
 export default class Header extends React.Component {
 
-  handleLogout() {
-    auth.logOut()
+  handleLogout = () => {
+    return auth.logOut()
   }
 
   loginButton() {
     if (auth.loggedIn()) {
       return (
         <li>
-          <a className="" OnClick={this.handleLogout()} href="">LogOut</a>
+          <a className="" onClick={this.handleLogout} href="">LogOut</a>
         </li>
       )
     } else {
       return (
         <li>
-          <a className="" href="#login">LogIn</a>
+          <a className="" onClick={this.handleLogIn} href="#login">LogIn</a>
         </li>
       )
     }

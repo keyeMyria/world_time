@@ -1,6 +1,6 @@
-'use strict';
 import { API, BaseModel } from 'mobx-model';
 import { pluralize } from 'inflection';
+import Notification from 'lib/notification';
 
 class Dashboard extends BaseModel {
 
@@ -20,7 +20,7 @@ class Dashboard extends BaseModel {
 	actionAddCity = (newCityId) => {
 		let currentCityIds = this.cities.map(city => city.id)
     currentCityIds.push(newCityId)
-		return this.update({ city_ids: currentCityIds })
+		return this.updateCity({ city_ids: currentCityIds })
 	}
 
 	actionRemoveCity = (City) => {
@@ -30,6 +30,28 @@ class Dashboard extends BaseModel {
 	}
 
 }
+
+BaseModel.addAction('updateCity', function(attributes = {}) {
+  return API.request({
+    method: 'put',
+    data: attributes,
+    endpoint: `${this.urlRoot}/${this.id}`,
+		onError: (response) => {
+				console.log("error")
+				if (response.status == 304) {
+						Notification.warning('City already exists')
+				}
+		},
+    onSuccess: (json) => {
+				console.log("success")
+      this.set({
+        modelJson: json.body[this.jsonKey],
+        topLevelJson: json
+    });
+   }
+ });
+});
+
 
 Dashboard.addClassAction('loadAll', function() {
 	return API.request({

@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import Layout from 'views/layout/layout';
-import Notfound from 'views/errors/not_found';
+import Notfound from 'views/shared/not_found';
 import Login from 'views/users/login';
 
 import auth from 'lib/auth';
@@ -12,7 +12,6 @@ import TestPage1 from 'views/test/test1';
 import TestPage2 from 'views/test/test2';
 
 const requireAuth = (nextState, replace) => {
-
   if (!auth.loggedIn()) {
     replace({
       pathname: '/login',

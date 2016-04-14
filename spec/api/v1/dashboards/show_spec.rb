@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Dashboard API' do
 
-  describe 'GET /api/v1/city/:id/' do
+  describe 'GET /api/v1/dashboards/id' do
     let!(:dashboard) { create(:dashboard) }
 
     it 'returns 200 status code', :lurker do

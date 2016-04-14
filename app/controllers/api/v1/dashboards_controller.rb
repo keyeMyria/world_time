@@ -12,9 +12,15 @@ class Api::V1::DashboardsController < Api::V1::BaseController
   end
 
   def update
-    @dashboard.update(dashboard_params)
-    @dashboard.set_home_city
-    render json: @dashboard, serializer: DashboardSerializer
+    # binding.pry
+    if city_ids_already_exists?
+      render nothing: true, status: 304
+    else
+      @dashboard.update(dashboard_params)
+      @dashboard.set_home_city
+      render json: @dashboard, serializer: DashboardSerializer
+    end
+
   end
 
 private
@@ -31,4 +37,16 @@ private
     @dashboard = Dashboard.find(params[:id])
   end
 
+  def city_ids_already_exists?
+    # binding.pry
+    exists_city = @dashboard.city_ids
+    params_city = dashboard_params[:city_ids].uniq.map(&:to_i)
+
+    if exists_city.empty? || params_city.empty?
+      false
+    else
+      # (exists_city - params_city).empty?
+      Set.new(exists_city) == Set.new(params_city)
+    end
+  end
 end

@@ -18,6 +18,7 @@ let auth = {
 					this._token = response.body.token;
 					localStorage.setItem('auth-token', this._token);
 				}
+				console.log(localStorage.getItem('auth-token'))
 			}
 		})
 	},
@@ -25,15 +26,14 @@ let auth = {
 	loggedIn() {
 		try {
 			let decodedToken = jwtDecode(this._token);
-			// ????
-			// return moment(decodedToken.exp).isAfter(Date.new);
-			return moment(decodedToken.exp).isBefore();
+			return moment(decodedToken.expires).isBefore();
 		} catch (err) {
 			return false
 		}
 	},
 
 	logOut() {
+		console.log("logOut")
 		return localStorage.removeItem("auth-token")
 	}
 

@@ -11,7 +11,7 @@ export default class SelectorList extends Component {
   }
 
   state = {
-    selectedCity: 10
+    selectedCity: 1
   }
 
   handleSelectedCity = (e) => {
@@ -33,8 +33,8 @@ export default class SelectorList extends Component {
         <div className="col-xs-offset-2 col-xs-4">
           <Select
               name="form-field-name"
-              value={this.state.selectedCity}
-              onChange={this.handleSelectedCity}
+              value={ this.state.selectedCity }
+              onChange={ this.handleSelectedCity }
               options={ cities }
           />
         </div>

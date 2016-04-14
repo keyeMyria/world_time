@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe 'Dashboard API' do
 
-  describe 'GET /index' do
-    # let!(:cities) { create_list(:city, 5) }
+  describe 'GET /api/v1/dashboards' do
     let!(:dashboard) { create_list(:dashboard, 5) }
     before { get "/api/v1/dashboards" }
 
