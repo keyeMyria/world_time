@@ -7,7 +7,6 @@ import Spinner from 'views/shared/spinner';
 import SelectorList from 'views/main/selector_list';
 import CityList from 'views/main/city_list';
 
-
 @observer
 export default class Page extends Component {
 

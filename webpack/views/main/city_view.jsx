@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { City } from 'models';
 
 import Clock from 'views/main/clock';
+import TimeLineList from 'views/main/timeline_list';
 
 @observer
 export default class CityView extends Component {
@@ -52,11 +53,9 @@ export default class CityView extends Component {
       <div className="city_view" >
         {this.buttonCityHome()}
         <div className="col-xs-1">{city.name}</div>
-
         <div className="col-xs-2"><Clock day={true} hour={city.hour}/></div>
-
         <div className="col-xs-1">UTC {city.hour}</div>
-        <div className="col-xs-5">Timeline</div>
+        <div className="col-xs-5"><TimeLineList hour={city.hour} /></div>
 
         <div className="col-xs-1">
           <button onClick={this.handleDestroy} className="btn btn-default">Destroy</button>

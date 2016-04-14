@@ -30,7 +30,7 @@ export default class Clock extends Component {
           { this.props.day ? time.format('DD') : null }
         </div>
         <div className={this.props.day ? "col-xs-6" : null}>
-          { time.format('H:mm:ss') }
+          { time.format('H:mm') }
         </div>
       </div>
     )
