@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { City } from 'models';
 import { Dashboard } from 'models';
 
+import Spinner from 'views/shared/spinner';
 import SelectorList from 'views/main/selector_list';
 import CityList from 'views/main/city_list';
 
@@ -24,7 +25,7 @@ export default class Page extends Component {
   }
 
   renderLoading() {
-    return <h1 className="center">Loading...</h1>
+    return <Spinner />
   }
 
   renderView() {

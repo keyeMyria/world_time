@@ -13,10 +13,6 @@ export default class CityList extends Component {
     dashboard: PropTypes.object.isRequired
   }
 
-  renderLoading() {
-    return <h1 className="center">Loading...</h1>
-  }
-
   renderView() {
     let dashboard = this.props.dashboard;
     let cities = dashboard.cities.slice();
@@ -40,7 +36,7 @@ export default class CityList extends Component {
   }
 
   render() {
-    return this.renderView();
+    return this.renderView()
   }
 
 }

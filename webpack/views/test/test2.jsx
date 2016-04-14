@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notification from 'lib/notification';
+import Spinner from 'views/shared/spinner';
 // import { NotificationSystem } from 'react-notification-system';
 // import moment from 'moment';
 
@@ -53,6 +54,7 @@ export default class Test2 extends Component {
     return (
         <div className="center">
           <h1> Test 2 open access</h1>
+          <Spinner />
           <button className="btn" onClick={this.handleLocal}> local </button>
           <br />
           <br />

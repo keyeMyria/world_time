@@ -24,10 +24,6 @@ export default class CityView extends Component {
     this.props.city.setHome()
   }
 
-  renderLoading() {
-    return <h1 className="center">Loading...</h1>
-  }
-
   buttonCityHome = () => {
     let city = this.props.city
 
@@ -71,6 +67,6 @@ export default class CityView extends Component {
   }
 
   render() {
-    return this.state.show ? this.renderView() : this.renderLoading()
+    return this.renderView()
   }
 }

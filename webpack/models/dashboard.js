@@ -37,13 +37,11 @@ BaseModel.addAction('updateCity', function(attributes = {}) {
     data: attributes,
     endpoint: `${this.urlRoot}/${this.id}`,
 		onError: (response) => {
-				console.log("error")
 				if (response.status == 304) {
 						Notification.warning('City already exists')
 				}
 		},
     onSuccess: (json) => {
-				console.log("success")
       this.set({
         modelJson: json.body[this.jsonKey],
         topLevelJson: json
