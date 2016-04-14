@@ -53,7 +53,7 @@ export default class CityView extends Component {
         {this.buttonCityHome()}
         <div className="col-xs-1">{city.name}</div>
 
-        <div className="col-xs-1"><Clock changeHour={city.hour}/></div>
+        <div className="col-xs-2"><Clock day={true} hour={city.hour}/></div>
 
         <div className="col-xs-1">UTC {city.hour}</div>
         <div className="col-xs-5">Timeline</div>

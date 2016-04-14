@@ -1,87 +1,41 @@
-import React from 'react';
-let output;
-const SetIntervalMixin = {
+import React, { PropTypes, Component } from 'react';
+import moment from 'moment';
+
+export default class Clock extends Component {
+
+  state = {
+    currentTime: 0
+  }
+
+  static propTypes = {
+     day: PropTypes.bool,
+     hour: PropTypes.number
+  }
+
+  tick = () => {
+    this.setState({currentTime: new Date + 1 })
+  }
+
   componentWillMount() {
-    this.intervals = [];
-  },
-
-  componentWillUnmount() {
-    this.intervals.map(clearInterval);
-  },
-
-  setInterval() {
-    this.intervals.push(setInterval.apply(null, arguments));
+    this.timer = setInterval(this.tick, 1000)
   }
-};
-
-const renderTime = () => {
-  const currentTime = new Date();
-  let diem = 'AM';
-  let h = currentTime.getHours();
-  let m = currentTime.getMinutes();
-  let s = currentTime.getSeconds();
-
-  // if (h === 0) {
-  //   h = 12;
-  // } else if (h > 12) {
-  //   h = h - 12;
-  //   diem = 'PM';
-  // }
-
-  if (m < 10) {
-    m = '0' + m;
-  }
-  if (s < 10) {
-    s = '0' + s;
-  }
-  output = {
-    hours: h,
-    minutes: m,
-    seconds: s,
-    diem
-  };
-  return output;
-};
-
-const Clock = React.createClass({
-  displayName: 'Clock',
-  mixins: [SetIntervalMixin],
-  getInitialState() {
-    return { time: renderTime() };
-  },
-  componentDidMount() {
-    this.setInterval(this.tick, 1000);
-  },
-  tick() {
-    renderTime();
-
-    let setHours;
-    if (this.props.changeHour) {
-      setHours = output.hours + this.props.changeHour;
-    } else {
-      setHours = output.hours;
-    }
-
-    this.setState({
-      hours: setHours,
-      minutes: output.minutes,
-      seconds: output.seconds,
-      diem: output.diem });
-  },
 
   render() {
+    let time = moment(new Date(this.state.currentTime))
+    this.props.hour ?  time.add(this.props.hour, "hour") : null
 
     return (
       <div>
-        { this.state.hours }:
-        { this.state.minutes }
+        <div className={this.props.day ? "col-xs-6" : null}>
+          { this.props.day ? time.format('DD') : null }
+        </div>
+        <div className={this.props.day ? "col-xs-6" : null}>
+          { time.format('H:mm:ss') }
+        </div>
       </div>
-    );
+    )
   }
-});
 
-module.exports = Clock;
+}
 
-// { this.state.hours }:{ this.state.minutes }:{ this.state.seconds }
-// <span className='diem'>{ this.state.diem }</span>
-// :{ this.state.seconds }
+

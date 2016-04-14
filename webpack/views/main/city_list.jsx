@@ -21,7 +21,7 @@ export default class CityList extends Component {
     return (
       <div className="center">
         <h1> List Current City </h1>
-        <div> Current time: <Clock /> </div>
+        <div className="center"> Current time: <Clock /> </div>
         <div className="clearfix" />
         <br />
         { cities_sort.map((city) =>
