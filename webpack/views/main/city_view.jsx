@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import { City } from 'models';
 
 import Clock from 'views/main/clock';
-import TimeLineList from 'views/main/timeline_list';
+import TimeLineList from 'views/main/time_line_list';
 
 @observer
 export default class CityView extends Component {
