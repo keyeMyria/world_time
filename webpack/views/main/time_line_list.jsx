@@ -12,20 +12,16 @@ export default class TimeLineList extends Component {
     let hour = this.props.hour
 
     if (hour <= 0) {
-      let start = (24 - Math.abs(hour))
-      let end = 24
-      let arr_one = range(start, end);
+      let begin = range(24 + hour, 24);
+      let end = range(1, 24 + hour);
+      return begin.concat(end)
 
-      let start_2 = 1
-      let end_2 = start_2 + (23 - Math.abs(hour))
-      let arr_two = range(start_2, end_2);
-
-      return arr_one.concat(arr_two)
     } else {
 
-      let start = hour
-      let end = 24
-      let arr_one = range(start, end);
+      // let start = hour
+      // let end = 24
+      // let arr_one = range(start, end);
+      let arr_one = range(hour, 24);
 
       let start_2 = 1
       let end_2 = hour
@@ -45,8 +41,7 @@ export default class TimeLineList extends Component {
           <tr>
             { hours.map((number, index) =>
               <TimeLineView
-                key={ index }
-                reactKey={ index }
+                key={ number}
                 number={ number }
               />
             )}
@@ -56,18 +51,9 @@ export default class TimeLineList extends Component {
     )
   }
 
-  // componentWillReceiveProps() {
-  //   console.log("111111")
-  // }
 
   setHours() {
-    // setHours(index) {
-    // console.log("33333"),
-    // console.log(this),
-    // console.log(index),
-    // console.log(tt.props)
-    // console.log(TimeLineList.props)
-    // console.log(this.state)
+
   }
 
 }

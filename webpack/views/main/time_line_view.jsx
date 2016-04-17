@@ -7,7 +7,7 @@ export default class TimeLineView extends Component {
 
   static propTypes = {
      number: PropTypes.number.isRequired,
-     reactKey: PropTypes.number.isRequired,
+     // reactKey: PropTypes.number.isRequired,
      // hour: PropTypes.number.isRequired,
   }
 
@@ -17,8 +17,9 @@ export default class TimeLineView extends Component {
 
   handleClick = () => {
     this.setState({active: !this.state.active})
-    let reactKey = this.props.reactKey
-    TimeLineStore.setHour(reactKey)
+    // let reactKey = this.props.reactKey
+    let number = this.props.number
+    TimeLineStore.setHour(number)
   }
 
   render() {

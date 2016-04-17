@@ -48,7 +48,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
 
-  gem 'jasmine'
+  # gem 'jasmine'
 
   # guard
   gem 'guard'
