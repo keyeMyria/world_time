@@ -7,13 +7,11 @@ export default class TimeLineView extends Component {
 
   static propTypes = {
      number: PropTypes.number.isRequired,
-     // reactKey: PropTypes.number.isRequired,
+     reactKey: PropTypes.number.isRequired,
+     isSelected: PropTypes.bool.isRequired,
+     onClick: PropTypes.func.isRequired
      // hour: PropTypes.number.isRequired,
   }
-
-  state = {
-    active: false
-  };
 
   handleClick = () => {
     this.setState({active: !this.state.active})
@@ -23,11 +21,11 @@ export default class TimeLineView extends Component {
   }
 
   render() {
-    let active = this.state.active
+    let active = this.props.isSelected
     let classes = classNames({ timeline: active, active_timeline: !active});
 
     return (
-      <td className={classes} onClick={this.handleClick}> { this.props.number }</td>
+      <td className={classes} onClick={this.props.onClick}> { this.props.number }</td>
     )
   }
 

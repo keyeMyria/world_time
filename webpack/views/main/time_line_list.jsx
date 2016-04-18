@@ -8,6 +8,13 @@ export default class TimeLineList extends Component {
      hour: PropTypes.number
   }
 
+  constructor(props) {
+    super(props);
+
+    // set current hour to state as selected
+    this.state = { selectedHour: new Date().toHour() }
+  }
+
   calculateHour() {
     let hour = this.props.hour
 
@@ -32,6 +39,10 @@ export default class TimeLineList extends Component {
 
   }
 
+  setCurrentHour(selectedHour) {
+    this.setState({ selectedHour });
+  }
+
   render() {
     let hours = this.calculateHour()
 
@@ -39,10 +50,12 @@ export default class TimeLineList extends Component {
       <table>
         <tbody>
           <tr>
-            { hours.map((number, index) =>
+            { hours.map((hour, index) =>
               <TimeLineView
-                key={ number}
-                number={ number }
+                key={ index }
+                number={ hour }
+                isSelected={ hour === this.state.selectedHour }
+                onClick={ this.setCurrentHour.bind(this, hour) }
               />
             )}
           </tr>
