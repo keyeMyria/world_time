@@ -2,11 +2,16 @@ import React, { Component, PropTypes } from 'react';
 import Page from 'views/layout/page';
 import auth from 'lib/auth';
 
+import Clearfix from 'react-bootstrap/lib/Clearfix';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import Input from 'react-bootstrap/lib/Input';
+
 export default class ProductSearch extends Component {
 
   static contextTypes = {
     router: PropTypes.object.isRequired
-  };
+  }
 
   static propTypes = {
     location: PropTypes.object
@@ -55,44 +60,49 @@ export default class ProductSearch extends Component {
 	title='Login'
       >
       <br />
-      <div className="bg-primary col-xs-offset-4 col-xs-4">
+      <Col
+	className="bg-primary border"
+	xs={4}
+	xsOffset={4}
+      >
 	<form className="center smart-form client-form">
 	  <fieldset>
 	    <br />
 	    <div> E-mail </div>
 	    <br />
-	    <div className="col-xs-offset-2 col-xs-8">
-	      <input type="email"
-		className="form-control"
+
+	    <Col xs={8} xsOffset={2} >
+	      <Input
+		type="email"
 		value={ this.state.email }
 		onChange={ this.handleEmailChange }
 	      />
-	    </div>
+	    </Col>
 
+	    <Clearfix />
 	    <br />
 	    <div> Password </div>
 	    <br />
-	    <div className="col-xs-offset-2 col-xs-8">
-	      <input type="password"
-		className="form-control"
+	    <Col xs={8} xsOffset={2}>
+	      <Input
+		type="password"
 		value={ this.state.password }
 		onChange={ this.handlePasswordChange }
 	      />
-	    </div>
+	    </Col>
 	  </fieldset>
 
 	  <br />
 	  <footer>
-	    <button type="submit"
-	      className="btn btn-default"
-	      onClick={ this.handleLogin }
-	    > Sign in </button>
+	    <Button onClick={ this.handleLogin } >Sign in</Button>
 	  <br />
 	  <br />
 	  </footer>
+
 	</form>
-	</div>
+	</Col>
       </Page>
     )
   }
 }
+

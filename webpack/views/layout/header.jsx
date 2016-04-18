@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import auth from 'lib/auth';
 
+@observer
 export default class Header extends React.Component {
 
   handleLogout = () => {
@@ -11,13 +13,16 @@ export default class Header extends React.Component {
     if (auth.loggedIn()) {
       return (
         <li>
-          <a className="" onClick={this.handleLogout} href="">LogOut</a>
+          <a
+            onClick={this.handleLogout}
+            href=""
+          >LogOut</a>
         </li>
       )
     } else {
       return (
         <li>
-          <a className="" onClick={this.handleLogIn} href="#login">LogIn</a>
+          <a href="#login">LogIn</a>
         </li>
       )
     }
@@ -49,6 +54,7 @@ export default class Header extends React.Component {
 
 
 
+          // <a className="" onClick={this.handleLogIn} href="#login">LogIn</a>
 
 
 

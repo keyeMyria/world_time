@@ -2,8 +2,6 @@ import moment from 'moment';
 import jwtDecode from 'jwt-decode';
 import { API } from 'mobx-model';
 
-// const urlRoot = 'https://products.test.cb.bis.nl/api';
-
 let auth = {
 
 	login(attributes = {}) {
@@ -18,7 +16,6 @@ let auth = {
 					this._token = response.body.token;
 					localStorage.setItem('auth-token', this._token);
 				}
-				console.log(localStorage.getItem('auth-token'))
 			}
 		})
 	},
