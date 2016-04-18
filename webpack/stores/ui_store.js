@@ -4,7 +4,4 @@ let UIStore  = {
   notificationSystem: null
 }
 
-extendObservable(UIStore, {
-})
-
-export default UIStore;
+export default UIStore

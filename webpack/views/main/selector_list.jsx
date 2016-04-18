@@ -6,10 +6,6 @@ import { City } from 'models';
 
 export default class SelectorList extends Component {
 
-  static propTypes = {
-    dashboard: PropTypes.object.isRequired
-  }
-
   state = {
     selectedCity: 1
   }
@@ -50,3 +46,6 @@ export default class SelectorList extends Component {
   }
 }
 
+SelectorList.propTypes = {
+  dashboard: PropTypes.object.isRequired
+}

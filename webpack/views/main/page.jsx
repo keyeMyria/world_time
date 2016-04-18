@@ -12,15 +12,15 @@ export default class Page extends Component {
 
   state = {
     loading: false
-  };
+  }
 
   componentWillMount() {
-    this.setState({ loading: true });
+    this.setState({ loading: true })
 
     Promise.all( [ City.loadAll(), Dashboard.loadAll() ])
-    .then((responses = []) => {
-      this.setState({ loading: false });
-    });
+      .then((responses = []) => {
+        this.setState({ loading: false })
+      })
   }
 
   renderLoading() {
@@ -28,7 +28,7 @@ export default class Page extends Component {
   }
 
   renderView() {
-    let dashboard = Dashboard.get(1);
+    let dashboard = Dashboard.get(1)
 
     return (
       <div className="center ">
@@ -40,7 +40,7 @@ export default class Page extends Component {
   }
 
   render() {
-    return this.state.loading ? this.renderLoading() : this.renderView();
+    return this.state.loading ? this.renderLoading() : this.renderView()
   }
 
 }

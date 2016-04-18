@@ -7,11 +7,6 @@ export default class Clock extends Component {
     currentTime: 0
   }
 
-  static propTypes = {
-     day: PropTypes.bool,
-     hour: PropTypes.number
-  }
-
   tick = () => {
     this.setState({currentTime: new Date + 1 })
   }
@@ -22,7 +17,7 @@ export default class Clock extends Component {
 
   render() {
     let time = moment(new Date(this.state.currentTime))
-    this.props.hour ?  time.add(this.props.hour, "hour") : null
+    this.props.hour ? time.add(this.props.hour, "hour") : null
 
     return (
       <div>
@@ -38,4 +33,8 @@ export default class Clock extends Component {
 
 }
 
+Clock.propTypes = {
+  day: PropTypes.bool,
+  hour: PropTypes.number,
+}
 
