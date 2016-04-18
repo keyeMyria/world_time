@@ -1,8 +1,8 @@
 class Api::V1::Users::SessionsController < Devise::SessionsController
 
-  require 'auth_token'
   skip_before_action :verify_authenticity_token
-  respond_to :html, :json
+  respond_to :json
+  require 'auth_token'
 
   def create
     self.resource = warden.authenticate!(auth_options)

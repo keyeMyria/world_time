@@ -5,13 +5,23 @@ export default {
 	success(message = '') {
 		UIStore.notificationSystem.addNotification({
       message,
+			position: "tc",
       level: 'success'
+    });
+	},
+
+	info(message = '') {
+		UIStore.notificationSystem.addNotification({
+      message,
+			position: "tc",
+      level: 'info'
     });
 	},
 
 	warning(message = '') {
 		UIStore.notificationSystem.addNotification({
       message,
+			position: "tc",
       level: 'warning',
     });
 	},
@@ -20,6 +30,7 @@ export default {
 		UIStore.notificationSystem.addNotification({
       title: 'An error occured',
       message,
+			position: "tc",
       level: 'error'
     });
 	},

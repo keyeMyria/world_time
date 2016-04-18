@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import auth from 'lib/auth';
+import { UserStore } from 'stores';
+
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap/dist/react-bootstrap.min.js';
 
 @observer
 export default class Header extends React.Component {
@@ -10,51 +13,41 @@ export default class Header extends React.Component {
   }
 
   loginButton() {
-    if (auth.loggedIn()) {
+    if (UserStore.logIn) {
       return (
-        <li>
-          <a
-            onClick={this.handleLogout}
-            href=""
-          >LogOut</a>
-        </li>
+        <MenuItem
+          onClick={this.handleLogout}
+          href=""
+        >LogOut</MenuItem>
       )
     } else {
       return (
-        <li>
-          <a href="#login">LogIn</a>
-        </li>
+        <MenuItem href="#login"> LogIn </MenuItem>
       )
     }
   }
 
   render() {
     return (
-      <div>
-        <nav id="" className="navbar ">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <a className="navbar-brand " href="#">World Time</a>
-            </div>
-              <ul className="nav navbar-nav navbar-left">
-                  <li> <a className="" href="#test1">Test Page 1 (if Login)</a> </li>
-                  <li> <a className="" href="#test2">Test Page 2</a> </li>
-              </ul>
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul className="nav navbar-nav navbar-right">
-                {this.loginButton()}
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+           <a href="#">World Time</a>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+            <NavItem href="#test1">Test 1</NavItem>
+            <NavItem href="#test2">Test 2</NavItem>
+        </Nav>
+
+        <Nav pullRight>
+          {this.loginButton()}
+        </Nav>
+
+      </Navbar>
     )
   }
 }
-
-
-
-          // <a className="" onClick={this.handleLogIn} href="#login">LogIn</a>
 
 
 

@@ -2,20 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import Page from 'views/layout/page';
 import auth from 'lib/auth';
 
-import Clearfix from 'react-bootstrap/lib/Clearfix';
-import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
-import Input from 'react-bootstrap/lib/Input';
+import { autorun } from 'mobx';
+import { UserStore } from 'stores';
 
-export default class ProductSearch extends Component {
+import Notification from 'lib/notification';
+import { Clearfix, Col, Button, Input } from 'react-bootstrap/dist/react-bootstrap.min.js';
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  }
-
-  static propTypes = {
-    location: PropTypes.object
-  };
+export default class Login extends Component {
 
   state = {
     email: '',
@@ -31,13 +24,15 @@ export default class ProductSearch extends Component {
   }
 
   handleLogin = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     auth.login({
       email: this.state.email,
       password: this.state.password
     }).then((response) => {
       if (response.ok) {
+	Notification.success("You success Login")
+	autorun(() => { UserStore.logIn = true })
 	const { location } = this.props
 
 	if (location.state && location.state.nextPathname) {
@@ -47,10 +42,10 @@ export default class ProductSearch extends Component {
 	}
 
       } else {
-	alert('error: cannot log in');
-	console.error(response);
+	Notification.error(response.body.error)
       }
-    });
+
+    })
   }
 
   render() {
@@ -104,5 +99,13 @@ export default class ProductSearch extends Component {
       </Page>
     )
   }
+}
+
+Login.propTypes = {
+  location: PropTypes.object
+}
+
+Login.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 

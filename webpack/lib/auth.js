@@ -1,38 +1,41 @@
-import moment from 'moment';
-import jwtDecode from 'jwt-decode';
 import { API } from 'mobx-model';
+import jwtDecode from 'jwt-decode';
+import moment from 'moment';
+import { autorun } from 'mobx';
+import { UserStore } from 'stores';
+import Notification from 'lib/notification';
 
 let auth = {
 
 	login(attributes = {}) {
-		let { email, password } = attributes;
+		let { email, password } = attributes
 
 		return API.request({
 			endpoint: '/users/sign_in',
 			method: 'post',
 			data: { user: { email, password } },
 			onSuccess: (response) => {
-				if (response.status == 200) {
-					this._token = response.body.token;
-					localStorage.setItem('auth-token', this._token);
-				}
+				this._token = response.body.token;
+				localStorage.setItem('auth-token', this._token);
 			}
 		})
 	},
 
 	loggedIn() {
 		try {
-			let decodedToken = jwtDecode(this._token);
-			return moment(decodedToken.expires).isBefore();
+			let decodedToken = jwtDecode(this._token)
+			return moment(decodedToken.expires).isAfter()
+
 		} catch (err) {
 			return false
 		}
 	},
 
 	logOut() {
-		console.log("logOut")
+    autorun(() => { UserStore.logIn = false })
+		Notification.info("You Logout")
 		return localStorage.removeItem("auth-token")
-	}
+	},
 
 }
 
