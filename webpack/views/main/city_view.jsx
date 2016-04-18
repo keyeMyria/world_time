@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { observer } from 'mobx-react';
 import { City } from 'models';
+import Col from 'react-bootstrap/lib/Col';
 
 import Clock from 'views/main/clock';
 import TimeLineList from 'views/main/time_line_list';
@@ -30,15 +31,15 @@ export default class CityView extends Component {
 
     if (city.home) {
       return (
-        <div className="center col-xs-2">
+        <Col xs={2}>
           <div> Home </div>
-        </div>
+        </Col>
       )
     } else {
       return (
-        <div className="col-xs-2">
+        <Col xs={2}>
           <button onClick={ this.handleHome } className="btn btn-primary page-scroll"> Home </button>
-        </div>
+        </Col>
       )
     }
   }
@@ -52,14 +53,15 @@ export default class CityView extends Component {
     return(
       <div className="city_view" >
         {this.buttonCityHome()}
-        <div className="col-xs-1">{city.name}</div>
-        <div className="col-xs-2"><Clock day={true} hour={city.hour}/></div>
-        <div className="col-xs-1">UTC {city.hour}</div>
-        <div className="col-xs-5"><TimeLineList hour={city.hour} /></div>
+        <Col xs={1}> {city.name} </Col>
+        <Col xs={2}> <Clock day={true} hour={city.hour}/> </Col>
+        <Col xs={1}> UTC {city.hour}</Col>
+        <Col xs={5}><TimeLineList hour={city.hour} /></Col>
 
-        <div className="col-xs-1">
+        <Col xs={1}>
           <button onClick={this.handleDestroy} className="btn btn-default">Destroy</button>
-        </div>
+        </Col>
+
         <div className="clearfix" />
       </div>
     )
@@ -69,3 +71,5 @@ export default class CityView extends Component {
     return this.renderView()
   }
 }
+
+

@@ -2,17 +2,16 @@ import React, { PropTypes, Component } from 'react';
 import TimeLineView from 'views/main/time_line_view';
 import range from 'lodash/range';
 
+import { TimeLineStore } from 'stores';
+
+import { observer } from 'mobx-react';
+import { autorun } from 'mobx';
+
+@observer
 export default class TimeLineList extends Component {
 
   static propTypes = {
      hour: PropTypes.number
-  }
-
-  constructor(props) {
-    super(props);
-
-    // set current hour to state as selected
-    this.state = { selectedHour: new Date().toHour() }
   }
 
   calculateHour() {
@@ -24,27 +23,16 @@ export default class TimeLineList extends Component {
       return begin.concat(end)
 
     } else {
-
-      // let start = hour
-      // let end = 24
-      // let arr_one = range(start, end);
-      let arr_one = range(hour, 24);
-
-      let start_2 = 1
-      let end_2 = hour
-      let arr_two = range(start_2, end_2);
-
-      return arr_one.concat(arr_two)
+      let begin = range(hour, 24);
+      let end = range(1, hour);
+      return begin.concat(end)
     }
 
   }
 
-  setCurrentHour(selectedHour) {
-    this.setState({ selectedHour });
-  }
-
   render() {
     let hours = this.calculateHour()
+    let select = TimeLineStore.selectedHour
 
     return (
       <table>
@@ -52,10 +40,10 @@ export default class TimeLineList extends Component {
           <tr>
             { hours.map((hour, index) =>
               <TimeLineView
-                key={ index }
-                number={ hour }
-                isSelected={ hour === this.state.selectedHour }
-                onClick={ this.setCurrentHour.bind(this, hour) }
+                key ={ hour }
+                hour ={ hour }
+                reactKey ={ index }
+                isSelected = {this.checkSelect(index)}
               />
             )}
           </tr>
@@ -64,10 +52,25 @@ export default class TimeLineList extends Component {
     )
   }
 
+  checkSelect(index) {
+    let select = TimeLineStore.selectedHour
+    // console.log(index)
+    // console.log(select)
+    if (select == "") {
+      return false
+    } else {
+      if (select == index) {
+        return true
+      } else {
+        return false
+      }
+    }
 
-  setHours() {
+
+
 
   }
 
 }
 
+// isSelected = { select == i ? true : false }
