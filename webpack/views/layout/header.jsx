@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import auth from 'lib/auth';
-import { UserStore } from 'stores';
+import { UIStore } from 'stores';
 
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap/dist/react-bootstrap.min.js';
 
@@ -13,7 +13,7 @@ export default class Header extends React.Component {
   }
 
   loginButton() {
-    if (UserStore.logIn) {
+    if (UIStore.logIn) {
       return (
         <MenuItem
           onClick={this.handleLogout}

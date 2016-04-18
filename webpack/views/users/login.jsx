@@ -31,10 +31,7 @@ export default class Login extends Component {
       password: this.state.password
     }).then((response) => {
       if (response.ok) {
-	Notification.success("You success Login")
-	autorun(() => { UserStore.logIn = true })
 	const { location } = this.props
-
 	if (location.state && location.state.nextPathname) {
 	  this.context.router.replace(location.state.nextPathname)
 	} else {
@@ -44,6 +41,10 @@ export default class Login extends Component {
       } else {
 	Notification.error(response.body.error)
       }
+
+      Notification.success("You success Login")
+      UserStore.logIn = true
+      return true
 
     })
   }

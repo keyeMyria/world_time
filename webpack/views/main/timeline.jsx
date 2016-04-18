@@ -1,26 +1,24 @@
 import React, { PropTypes, Component } from 'react';
 import { observer } from 'mobx-react';
 import range from 'lodash/range';
-import { TimeLineStore } from 'stores';
-import TimeLineView from 'views/main/time_line_view';
+
+import Cell from 'views/main/cell';
 
 @observer
-export default class TimeLineList extends Component {
+export default class TimeLine extends Component {
 
   render() {
     let hours = this.calculateHour()
-    let select = TimeLineStore.selectedHour
 
     return (
       <table>
         <tbody>
           <tr>
             { hours.map((hour, index) =>
-              <TimeLineView
+              <Cell
                 key = { hour }
                 hour = { hour }
-                reactKey = { index }
-                isSelected = { this.checkSelect(index) }
+                index = { index }
               />
             )}
           </tr>
@@ -50,6 +48,6 @@ export default class TimeLineList extends Component {
 
 }
 
-TimeLineList.propTypes = {
+TimeLine.propTypes = {
   hour: PropTypes.number
 }

@@ -3,19 +3,20 @@ import classNames from 'classnames';
 import { observer } from 'mobx-react';
 import { autorun } from 'mobx';
 
-import { TimeLineStore } from 'stores';
+import { UIStore } from 'stores';
 
 @observer
-export default class TimeLineView extends Component {
+export default class Cell extends Component {
 
   handleClick = () => {
-    autorun(() => {
-      TimeLineStore.selectedHour = this.props.reactKey
-    })
+    UIStore.selectedIndexCell = this.props.index
   }
 
   render() {
-    let isSelected = this.props.isSelected
+    let currentIndex  = this.props.index
+    let selectedIndex = UIStore.selectedIndexCell
+    let isSelected = currentIndex == selectedIndex
+
     let classes = classNames({ timeline: isSelected, active_timeline: !isSelected});
 
     return (
@@ -25,9 +26,8 @@ export default class TimeLineView extends Component {
 
 }
 
-TimeLineView.propTypes = {
+Cell.propTypes = {
   hour: PropTypes.number.isRequired,
-  isSelected: PropTypes.bool.isRequired,
-  reactKey: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
 }
 

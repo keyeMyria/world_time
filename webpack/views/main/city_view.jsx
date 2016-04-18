@@ -4,7 +4,7 @@ import { City } from 'models';
 import Col from 'react-bootstrap/lib/Col';
 
 import Clock from 'views/main/clock';
-import TimeLineList from 'views/main/time_line_list';
+import TimeLine from 'views/main/timeline';
 
 @observer
 export default class CityView extends Component {
@@ -60,7 +60,7 @@ export default class CityView extends Component {
           UTC {city.hour}
         </Col>
         <Col xs={5}>
-          <TimeLineList hour={city.hour} />
+          <TimeLine hour={city.hour} />
         </Col>
         <Col xs={1}>
           <button
