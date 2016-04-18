@@ -15,6 +15,10 @@ export default class Clock extends Component {
     this.timer = setInterval(this.tick, 1000)
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
   render() {
     let time = moment(new Date(this.state.currentTime))
     this.props.hour ? time.add(this.props.hour, "hour") : null
