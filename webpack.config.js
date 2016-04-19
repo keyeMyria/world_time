@@ -1,9 +1,7 @@
 'use strict';
-
 var path = require('path');
 var webpack = require('webpack');
 var StatsPlugin = require('stats-webpack-plugin');
-
 var devServerPort = 3808;
 var production = process.env.TARGET === 'production';
 

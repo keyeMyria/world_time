@@ -9,6 +9,4 @@ extendObservable(UIStore, {
 	logIn: false,
 })
 
-
-
 export default UIStore

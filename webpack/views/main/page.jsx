@@ -4,7 +4,7 @@ import { City } from 'models';
 import { Dashboard } from 'models';
 
 import Spinner from 'views/shared/spinner';
-import SelectorList from 'views/main/selector_list';
+import Selector from 'views/main/selector';
 import CityList from 'views/main/city_list';
 
 @observer
@@ -33,7 +33,7 @@ export default class Page extends Component {
     return (
       <div className="center ">
         <br />
-        <SelectorList dashboard={ dashboard }/>
+        <Selector dashboard={ dashboard }/>
         <CityList dashboard={ dashboard } />
       </div>
     )

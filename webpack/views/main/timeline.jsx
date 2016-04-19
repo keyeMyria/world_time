@@ -16,9 +16,9 @@ export default class TimeLine extends Component {
           <tr>
             { hours.map((hour, index) =>
               <Cell
-                key = { hour }
-                hour = { hour }
+                key = { index }
                 index = { index }
+                hour = { hour }
               />
             )}
           </tr>

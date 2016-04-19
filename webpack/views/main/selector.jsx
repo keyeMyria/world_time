@@ -4,7 +4,7 @@ import 'react-select/dist/react-select.css';
 
 import { City } from 'models';
 
-export default class SelectorList extends Component {
+export default class Selector extends Component {
 
   state = {
     selectedCity: 1
@@ -46,6 +46,6 @@ export default class SelectorList extends Component {
   }
 }
 
-SelectorList.propTypes = {
+Selector.propTypes = {
   dashboard: PropTypes.object.isRequired
 }

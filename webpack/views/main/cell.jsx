@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import { observer } from 'mobx-react';
 import { autorun } from 'mobx';
 
-import { UIStore } from 'stores';
+// import { UIStore } from 'stores';
+import { UIStore } from '../../stores/index.js';
 
 @observer
 export default class Cell extends Component {

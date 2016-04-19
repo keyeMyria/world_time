@@ -48,8 +48,6 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
 
-  # gem 'jasmine'
-
   # guard
   gem 'guard'
   gem 'guard-livereload'
