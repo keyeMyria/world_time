@@ -11,7 +11,7 @@ export default class Footer extends Component {
            <br />
            <br />
            <div className="small-12">
-             <span >World Time - Web Application © 2014-2016</span>
+             <span>World Time - Web Application</span>
            </div>
          </div>
      )

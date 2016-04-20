@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Page from 'views/layout/page';
+import Page from 'views/layout/page_layout';
 import auth from 'lib/auth';
 
 import { autorun } from 'mobx';
