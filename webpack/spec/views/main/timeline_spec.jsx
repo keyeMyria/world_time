@@ -4,9 +4,13 @@ import expect from 'expect';
 
 import TimeLine from 'views/main/timeline';
 
-describe('TimeLine', function () {
-  it('renders', function () {
+describe('TimeLine', () => {
+  it('renders', () => {
     let page = TestUtils.renderIntoDocument(<TimeLine />);
     expect(page).toExist();
   });
+
+
+
+
 });

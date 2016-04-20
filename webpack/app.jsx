@@ -9,6 +9,3 @@ import 'config';
 
 render(routes, document.getElementById('main'));
 
-
-
-

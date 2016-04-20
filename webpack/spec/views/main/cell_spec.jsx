@@ -2,7 +2,7 @@
 // import TestUtils from 'react-addons-test-utils';
 // import expect from 'expect';
 
-// import Cell from '../../../views/main/cell.jsx';
+// import Cell from 'views/main/cell';
 
 // describe('Cell', function () {
 //   it('renders', function () {

@@ -3,7 +3,6 @@ var path = require('path');
 module.exports = function(config) {
   config.set({
     // basePath: 'webpack/spec/',
-    // basePath: 'webpack',
     autoWatch: true,
     browserNoActivityTimeout: 60000,
     reporters: ['progress', 'html'],
@@ -64,42 +63,40 @@ module.exports = function(config) {
         presets: ['es2015', 'react', 'stage-1'],
       },
 
-    }, {
-      test:   /\.jade$/,
-      loader: "jade"
-    }, {
-      test:   /\.styl$/,
-      loader: 'style!css!stylus?resolve urls'
-    }, {
-      test:   /\.css$/,
-      loader: 'style-loader!css-loader'
-    }, {
-      test: /\.sass$/,
-      loaders: ['style', 'css', 'sass'],
-    }, {
-      test:   /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-      loader: 'file?name=[path][name].[ext]'
+      },
+      // {
+      //   test:   /\.jade$/,
+      //   loader: "jade"
+      // },
+      // {
+      //   test:   /\.styl$/,
+      //   loader: 'style!css!stylus?resolve urls'
+      // },
+      {
+        test:   /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.sass$/,
+        loaders: ['style', 'css', 'sass'],
+      },
+      // {
+        // test:   /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+        // loader: 'file?name=[path][name].[ext]'
+      // },
+      // {
+        // test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        // loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      // },
+      // {
+        // test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        // loader: "file-loader"
+      // }
+      ], },
     },
-    {
-      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: "url-loader?limit=10000&mimetype=application/font-woff"
-    },
-    {
-      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: "file-loader"
-    }
-    ]
 
-  },
-
-    },
-
-    // webpackMiddleware: {
-    //   noInfo: true,
-    // },
-
-   htmlReporter: {
-      outputDir: 'webpack/spec/reporter/',
+    htmlReporter: {
+      outputDir: 'webpack/spec/utils/reporter/',
       templatePath: null,
       focusOnFailures: true,
       namedFiles: false,

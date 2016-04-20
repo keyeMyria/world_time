@@ -1,3 +1,9 @@
+// let myNameIs = function() {
+// 	return 'Nick';
+// };
+
+// export default myNameIs
+
 // import React from 'react';
 
 // class Root extends React.Component {
